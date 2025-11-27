@@ -1,5 +1,6 @@
 {
   "Index": {
+    "mainPage": "This is the main page",
     "boilerplateName": "Next.js i18n Template",
     "title": "Next 15 Template with i18n and Shadcn UI",
     "description": "A powerful starting point for your next multilingual, accessible web application.",
@@ -38,7 +39,63 @@
   },
   "Metadata": {
     "title": "Next.js i18n Template - Multilingual Starter Template",
-    "description": "Next.js internationalization (i18n) starter kit with Arabic, Chinese, English, Spanish, and Japanese support. Includes shadcn UI, theme switching, and RTL support.",
-    "keywords": "Next.js, i18n, internationalization, Arabic, Chinese, Spanish, Japanese, multilingual, template, starter template, shadcn UI, RTL support"
+    "description": "Next.js internationalization (i18n) starter kit with Armenian, Russian, and English support. Includes shadcn UI, theme switching, and RTL support.",
+    "keywords": "Next.js, i18n, internationalization, Armenian, Russian, English, multilingual, template, starter template, shadcn UI, RTL support"
+  },
+  "Navigation": {
+    "about": "About",
+    "services": "Services",
+    "contact": "Contact",
+    "login": "Login",
+    "logout": "Logout",
+    "loggingOut": "Logging out..."
+  },
+  "Auth": {
+    "auth": "Authentication",
+    "register": "Register",
+    "login": "Login",
+    "email": "Email",
+    "emailPlaceholder": "Enter your email",
+    "name": "Name",
+    "namePlaceholder": "Enter your name",
+    "surname": "Surname",
+    "surnamePlaceholder": "Enter your surname",
+    "phone": "Phone",
+    "phonePlaceholder": "+37412345678",
+    "password": "Password",
+    "passwordPlaceholder": "Enter password (min 8 characters)",
+    "passwordRequirements": "Password must contain at least 8 characters, including uppercase, lowercase, number, and special character (!?@#$%^&*()-_+=,./)",
+    "passwordInvalid": "Password does not meet requirements",
+    "passwordsDoNotMatch": "Passwords do not match",
+    "confirmPassword": "Confirm Password",
+    "confirmPasswordPlaceholder": "Confirm your password",
+    "loading": "Loading...",
+    "registerSuccess": "Registration successful!",
+    "registerError": "Registration failed. Please try again.",
+    "loginError": "Login failed. Please check your credentials.",
+    "forgotPassword": "Forgot password?",
+    "forgotPasswordDescription": "Enter your email address and we'll send you a link to reset your password.",
+    "sendResetLink": "Send Reset Link",
+    "forgotPasswordSuccess": "Reset link sent to your email!",
+    "forgotPasswordError": "Failed to send reset link. Please try again.",
+    "noAccount": "Don't have an account?",
+    "hasAccount": "Already have an account?",
+    "backToLogin": "Back to Login"
+  },
+  "Pages": {
+    "aboutTitle": "About Us",
+    "aboutDescription": "We specialize in providing high-quality services.",
+    "contactTitle": "Contact",
+    "contactDescription": "Get in touch with us for any inquiries.",
+    "servicesTitle": "Services",
+    "servicesDescription": "We offer a wide range of services for your needs."
+  },
+  "NotFound": {
+    "title": "Page Not Found",
+    "description": "Sorry, but we couldn't find the page you were looking for.",
+    "goHome": "Go Back Home"
+  },
+  "Carousel": {
+    "getTicket": "Get a ticket"
   }
 }

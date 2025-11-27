@@ -3,7 +3,7 @@
 import { ServerCrash } from "lucide-react";
 import { use, useEffect } from "react";
 
-import { Button } from "@/components/ui/button";
+import { Button } from "@/components/ui/mainBtn/button";
 
 import { Link } from "@/i18n/navigation";
 import { useTranslations } from "next-intl";
@@ -36,12 +36,12 @@ export default function Error({
       </h1>
       <p className="mb-8 text-lg text-gray-600">{t("sorry")}</p>
       <div className="flex flex-col gap-4 sm:flex-row">
-        <Button onClick={() => reset()} variant="default">
+        <Button onClick={() => reset()}>
           {t("tryAgain")}
         </Button>
-        <Button variant="outline" asChild>
-          <Link href="/">{t("returnHome")}</Link>
-        </Button>
+        <Link href="/">
+          <Button>{t("returnHome")}</Button>
+        </Link>
       </div>
     </div>
   );

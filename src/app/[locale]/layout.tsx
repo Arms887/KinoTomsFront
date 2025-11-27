@@ -9,7 +9,10 @@ import { WebSite } from "schema-dts";
 import { Geist, Geist_Mono } from "next/font/google";
 import { Analytics } from "@vercel/analytics/react";
 import { SpeedInsights } from "@vercel/speed-insights/next";
+import Header from "@/components/Header/Header";
+import { UserProvider } from "@/contexts/UserContext";
 import "../globals.css";
+import "antd/dist/reset.css";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -40,10 +43,10 @@ export default async function RootLayout({
   // Enable static rendering
   setRequestLocale(locale);
 
-  const isArabic = locale === "ar";
+  const isRTL = false; // No RTL languages in current setup
   const t = await getTranslations({ locale, namespace: "Metadata" });
   return (
-    <html lang={locale} dir={isArabic ? "rtl" : "ltr"} suppressHydrationWarning>
+    <html lang={locale} dir="ltr" suppressHydrationWarning>
       <head>
         <link rel="icon" href="/favicon.ico" />
         <meta name="theme-color" content="#000000" />
@@ -74,7 +77,12 @@ export default async function RootLayout({
           enableSystem
           disableTransitionOnChange
         >
-          <NextIntlClientProvider>{children}</NextIntlClientProvider>
+          <NextIntlClientProvider>
+            <UserProvider>
+              <Header />
+              {children}
+            </UserProvider>
+          </NextIntlClientProvider>
         </ThemeProvider>
         <Analytics />
         <SpeedInsights />
@@ -83,7 +91,7 @@ export default async function RootLayout({
   );
 }
 
-const locales = ["en", "ar", "zh", "es", "ja"] as const;
+const locales = ["hy", "ru", "en"] as const;
 
 export function generateStaticParams() {
   return locales.map((locale) => ({ locale }));
@@ -130,11 +138,9 @@ export async function generateMetadata({
     alternates: {
       canonical: DOMAIN,
       languages: {
+        hy: `${DOMAIN}/hy`,
+        ru: `${DOMAIN}/ru`,
         en: `${DOMAIN}/en`,
-        ar: `${DOMAIN}/ar`,
-        zh: `${DOMAIN}/zh`,
-        es: `${DOMAIN}/es`,
-        ja: `${DOMAIN}/ja`,
       },
     },
     robots: {

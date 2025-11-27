@@ -1,0 +1,36 @@
+.content {
+  max-width: 800px;
+  width: 100%;
+}
+
+.title {
+  font-size: 2rem;
+  font-weight: 700;
+  text-align: center;
+  color: hsl(var(--foreground));
+  margin-bottom: 1.5rem;
+
+  @media (min-width: 640px) {
+    font-size: 3rem;
+  }
+
+  @media (min-width: 1024px) {
+    font-size: 4rem;
+  }
+}
+
+.description {
+  font-size: 1rem;
+  text-align: center;
+  color: hsl(var(--muted-foreground));
+  line-height: 1.6;
+
+  @media (min-width: 640px) {
+    font-size: 1.125rem;
+  }
+
+  @media (min-width: 1024px) {
+    font-size: 1.25rem;
+  }
+}
+

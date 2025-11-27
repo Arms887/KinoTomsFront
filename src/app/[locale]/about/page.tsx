@@ -1,15 +1,15 @@
 import { use } from "react";
 import { setRequestLocale } from "next-intl/server";
-import HomePage from "@/pages/HomePage/HomePage";
+import AboutPage from "@/pages/AboutPage/AboutPage";
 
-export default function HomePageWrapper({
+export default function AboutPageWrapper({
   params,
 }: {
   params: Promise<{ locale: string }>;
 }) {
   const { locale } = use(params);
-  // Enable static rendering
   setRequestLocale(locale);
 
-  return <HomePage />;
+  return <AboutPage />;
 }
+
