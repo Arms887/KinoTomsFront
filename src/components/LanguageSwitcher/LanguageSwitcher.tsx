@@ -1,8 +1,8 @@
 "use client";
 
-import { useEffect, useState } from "react";
-import { useParams, useRouter as useNextRouter } from "next/navigation";
+import { useLocale } from "next-intl";
 import { usePathname } from "@/i18n/navigation";
+import { useRouter } from "next/navigation";
 import { Button } from "../ui/mainBtn/button";
 import {
   DropdownMenu,
@@ -12,33 +12,20 @@ import {
 } from "../ui/dropdown-menu";
 
 const LanguageSwitcher = () => {
-  const nextRouter = useNextRouter(); // Use Next.js router to avoid auto locale prefix
-  const pathname = usePathname(); // This returns pathname without locale
-  const params = useParams();
-  const [currentLanguage, setCurrentLanguage] = useState("hy");
-
-  useEffect(() => {
-    // Get current locale from URL params
-    const locale = params?.locale as string;
-    if (locale && ["hy", "ru", "en"].includes(locale)) {
-      setCurrentLanguage(locale);
-    } else {
-      setCurrentLanguage("hy");
-    }
-  }, [params]);
+  const locale = useLocale();
+  const router = useRouter();
+  const pathname = usePathname();
 
   const changeLanguage = (newLanguage: string) => {
-    setCurrentLanguage(newLanguage);
-    
-    // usePathname() from next-intl returns pathname without locale
     // Construct the new path with the new locale
+    // pathname from next-intl already excludes the locale prefix
     const newPath = pathname === '/' 
       ? `/${newLanguage}` 
       : `/${newLanguage}${pathname}`;
     
-    // Use Next.js router to navigate without auto-adding locale prefix
-    nextRouter.push(newPath);
-    nextRouter.refresh();
+    // Use replace instead of push to avoid adding to history
+    // This provides client-side navigation without full page refresh
+    router.replace(newPath);
   };
 
   const languageLabels = {
@@ -51,7 +38,7 @@ const LanguageSwitcher = () => {
     <DropdownMenu dir="ltr">
       <DropdownMenuTrigger asChild>
         <Button width={100} height={50}>
-          {languageLabels[currentLanguage as keyof typeof languageLabels]}
+          {languageLabels[locale as keyof typeof languageLabels]}
         </Button>
       </DropdownMenuTrigger>
       <DropdownMenuContent align="end">

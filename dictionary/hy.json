@@ -1,4 +1,7 @@
 {
+  "HomePageSecond": {
+    "homePageSecondTitle": "Կինոթատրոններ"
+  },
   "Index": {
     "mainPage": "Սա գլխավոր էջն է",
     "boilerplateName": "Next.js i18n Template",

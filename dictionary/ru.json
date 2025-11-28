@@ -1,4 +1,7 @@
 {
+  "HomePageSecond": {
+    "homePageSecondTitle": "Кинотеатры"
+  },
   "Index": {
     "mainPage": "Это главная страница",
     "boilerplateName": "Next.js i18n Template",
@@ -98,4 +101,3 @@
     "getTicket": "Получить билет"
   }
 }
-

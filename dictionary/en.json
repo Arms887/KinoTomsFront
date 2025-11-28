@@ -1,4 +1,7 @@
 {
+  "HomePageSecond": {
+    "homePageSecondTitle": "Cinemas"
+  },
   "Index": {
     "mainPage": "This is the main page",
     "boilerplateName": "Next.js i18n Template",

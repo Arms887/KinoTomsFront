@@ -16,25 +16,33 @@ interface ImageSliderProps {
 const ImageSlider: React.FC<ImageSliderProps> = ({ images, buttons }) => {
   const t = useTranslations('Carousel');
   const [activeIndex, setActiveIndex] = useState(0);
+  const [isMounted, setIsMounted] = useState(false);
   const trackRef = useRef<HTMLDivElement>(null);
   const wrapperRef = useRef<HTMLDivElement>(null);
 
   // Slide width-ը և gap-ը responsive-ի համար
   const getSlideWidth = () => {
     if (typeof window === 'undefined') return 0;
-    return window.innerWidth * 0.8;
+    return window.innerWidth * 0.7;
   };
 
   const getGap = () => {
-    return 44; // Fixed gap 44px
+    if (typeof window === 'undefined') return 44;
+    // Responsive gap: viewport width-ի 2.5%, բայց min 20px, max 60px
+    const viewportWidth = window.innerWidth;
+    const calculatedGap = viewportWidth * 0.025;
+    return Math.max(20, Math.min(60, calculatedGap));
   };
 
   const calculateTransform = () => {
-    if (!wrapperRef.current || images.length === 0) return 'translateX(0)';
+    if (!wrapperRef.current || images.length === 0 || !isMounted) return 'translateX(0)';
     
     const slideWidth = getSlideWidth();
     const gap = getGap();
     const wrapperWidth = wrapperRef.current.offsetWidth;
+    
+    // Ստուգում ենք, թե արդյոք wrapper-ը պատրաստ է
+    if (wrapperWidth === 0) return 'translateX(0)';
     
     // Հաշվարկում ենք, թե որքան պետք է shift անել
     // Active slide-ը պետք է լինի viewport-ի կենտրոնում
@@ -44,6 +52,29 @@ const ImageSlider: React.FC<ImageSliderProps> = ({ images, buttons }) => {
     
     return `translateX(calc(-${offset}px + ${centerOffset}px))`;
   };
+
+  // Initial mount-ի համար - ստուգում ենք, թե արդյոք DOM-ը պատրաստ է
+  useEffect(() => {
+    if (images.length === 0) return;
+    
+    // Ստուգում ենք, թե արդյոք wrapper-ը պատրաստ է
+    const checkMount = () => {
+      if (wrapperRef.current && wrapperRef.current.offsetWidth > 0) {
+        setIsMounted(true);
+      } else {
+        // Եթե դեռ պատրաստ չէ, փորձում ենք մի քանի անգամ
+        requestAnimationFrame(() => {
+          if (wrapperRef.current && wrapperRef.current.offsetWidth > 0) {
+            setIsMounted(true);
+          } else {
+            setTimeout(checkMount, 50);
+          }
+        });
+      }
+    };
+    
+    checkMount();
+  }, [images.length]);
 
   useEffect(() => {
     if (images.length === 0) return;
@@ -62,14 +93,18 @@ const ImageSlider: React.FC<ImageSliderProps> = ({ images, buttons }) => {
     return () => clearInterval(interval);
   }, [images.length]);
 
-  // Window resize-ի համար
+  // Window resize-ի համար և initial positioning-ի համար
   useEffect(() => {
-    const handleResize = () => {
-      // Force re-render to recalculate transform
-      if (trackRef.current && wrapperRef.current && images.length > 0) {
+    if (!isMounted || images.length === 0) return;
+
+    const updateTransform = () => {
+      if (trackRef.current && wrapperRef.current) {
         const slideWidth = getSlideWidth();
         const gap = getGap();
         const wrapperWidth = wrapperRef.current.offsetWidth;
+        
+        if (wrapperWidth === 0) return;
+        
         const slideWithGap = slideWidth + gap;
         const offset = activeIndex * slideWithGap;
         const centerOffset = (wrapperWidth / 2) - (slideWidth / 2);
@@ -77,9 +112,17 @@ const ImageSlider: React.FC<ImageSliderProps> = ({ images, buttons }) => {
       }
     };
 
+    // Initial positioning
+    updateTransform();
+
+    // Window resize-ի համար
+    const handleResize = () => {
+      updateTransform();
+    };
+
     window.addEventListener('resize', handleResize);
     return () => window.removeEventListener('resize', handleResize);
-  }, [activeIndex, images.length]);
+  }, [activeIndex, images.length, isMounted]);
 
   const handleSlideClick = (index: number) => {
     if (index >= 0 && index < images.length) {

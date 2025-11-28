@@ -1,0 +1,36 @@
+.cinemaLittleCardsContainer {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  // flex-wrap: wrap;
+  gap: 35px;
+  margin-bottom: 68px;
+}
+
+.cinemaLittleCard {
+  position: relative;
+  width: 18%;
+  max-width: 335px;
+  height: 100px;
+  background: rgba(0, 0, 0, 0.3);
+  border-radius: 10px;
+  cursor: pointer;
+
+  // Gradient border-ի համար
+  &::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    border-radius: 10px;
+    padding: 1px; // Border-ի հաստություն
+    background: linear-gradient(90deg, #8D0428 0%, #FFFFFF 100%);
+    -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+    -webkit-mask-composite: xor;
+    mask-composite: exclude;
+  }
+
+  &:hover::before {
+    background: linear-gradient(90deg, #8D0428 0%, #FFFFFF 100%);
+  }
+}
