@@ -7,6 +7,7 @@ import img2 from "./../../../../../public/assets/img/image 4.png";
 import img3 from "./../../../../../public/assets/img/image 7.png";
 import img4 from "./../../../../../public/assets/img/image 9.png";
 import { ProductCard } from "@/components/ProductCard";
+import { LittleProductCard } from "@/components/LittleProductCard";
 export default function HomePageSecond() {
     const t = useTranslations("HomePageSecond");
     const testArray = [
@@ -39,9 +40,18 @@ export default function HomePageSecond() {
                     <h2 className={styles.title}>{t("homePageSecondTitle")}</h2>
                     <CinemaLittleCards />
                     <MainSearch />
-                    {testArray.map((item, index) => (
-                        <ProductCard key={index} img={item.img} time={item.time} title={item.title} />
-                    ))}
+                    <div className={styles.homePageSecondCards}>
+                        <div className={styles.homePageSecondNormalCards}>
+                            {testArray.map((item, index) => (
+                                <ProductCard className={styles.homePageSecondLittleCard}  key={index} img={item.img} time={item.time} title={item.title} />
+                            ))}
+                        </div>
+                        <div className={styles.homePageSecondLittleCards}>
+                            {testArray.map((item, index) => (
+                                <LittleProductCard className={styles.homePageSecondLittleCard} key={index} img={item.img} />
+                            ))}
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>

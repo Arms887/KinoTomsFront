@@ -6,6 +6,7 @@ import dayjs from "dayjs"
 import styles from "./mainSearch.module.scss"
 import { PinkButton } from "../ui/pinkButton"
 import { DatePickerIcon } from "../../../public/svg/datePicker"
+import { useTranslations } from "next-intl"
 
 interface SearchFormState {
     date: Dayjs | null
@@ -15,6 +16,7 @@ interface SearchFormState {
 }
 
 function MainSearch() {
+    const t = useTranslations("MainSearch")
     const [searchState, setSearchState] = useState<SearchFormState>({
         date: dayjs(),
         name: "",
@@ -55,7 +57,7 @@ function MainSearch() {
         <div className={styles.mainSearchContainer}>
             <div className={styles.mainSearchInputContainer}>
                 <div className={styles.mainSearchInputItem}>
-                    <p>Ներկայացման օր</p>
+                    <p>{t("cinemaDate")}</p>
                     <div className={styles.datePickerWrapper}>
                         <DatePickerIcon />
                         <DatePicker
@@ -63,42 +65,42 @@ function MainSearch() {
                             value={searchState.date}
                             onChange={handleDateChange}
                             format="DD/MM/YYYY"
-                            placeholder="Ներկայացման օր"
+                            placeholder={t("cinemaDate")}
                         />
                     </div>
                 </div>
                 <div className={styles.mainSearchInputItem}>
-                    <p>Ներկայացման անուն</p>
+                    <p>{t("cinemaName")}</p>
                     <Input
                         className={styles.textInput}
                         value={searchState.name}
                         onChange={handleNameChange}
-                        placeholder="Ներկայացման Անուն"
+                        placeholder={t("cinemaName")}
                     />
                 </div>
                 <div className={styles.mainSearchInputItem}>
-                    <p>Կինոթատրոններ</p>
+                    <p>{t("cinemas")}</p>
                     <Select
                         className={styles.selectInput}
                         value={searchState.cinemas || undefined}
                         onChange={handleCinemasChange}
-                        placeholder="Կինոթատրոններ"
+                        placeholder={t("cinemas")}
                         options={cinemasOptions}
                     />
                 </div>
                 <div className={styles.mainSearchInputItem}>
-                    <p>Քաղաք</p>
+                    <p>{t("city")}</p>
                     <Select
                         className={styles.selectInput}
                         value={searchState.city || undefined}
                         onChange={handleCityChange}
-                        placeholder="Քաղաք"
+                        placeholder={t("city")}
                         options={citiesOptions}
                     />
                 </div>
             </div>
             <PinkButton height="40px">
-                <span>Search</span>
+                <span>{t("search")}</span>
             </PinkButton>
         </div>
     )

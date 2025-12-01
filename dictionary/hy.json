@@ -1,6 +1,11 @@
 {
   "HomePageSecond": {
-    "homePageSecondTitle": "Կինոթատրոններ"
+    "homePageSecondTitle": "Կինոթատրոններ",
+    "homePageSearchTitle": "Միացե՛ք Մեզ",
+    "homePageSearchPlaceholder": "Էլ. Հասցե",
+    "homePageFilmTitle": "Գտեք թաքնված գոհարներ",
+"homePageFilmButton": "Դիտել ֆիլմերը"
+
   },
   "Index": {
     "mainPage": "Սա գլխավոր էջն է",
@@ -99,6 +104,12 @@
   },
   "Carousel": {
     "getTicket": "Վերցնել տոմս"
+  },
+  "MainSearch":{
+    "cinemaDate": "Ներկայացման օր",
+    "cinemaName": "Ներկայացման անուն",
+    "cinemas": "Կինոթատրոններ",
+    "city": "Քաղաք",
+    "search": "Փնտրել"
   }
 }
-

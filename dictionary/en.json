@@ -1,6 +1,10 @@
 {
   "HomePageSecond": {
-    "homePageSecondTitle": "Cinemas"
+    "homePageSecondTitle": "Cinemas",
+    "homePageSearchTitle": "Join Us",
+    "homePageSearchPlaceholder": "Email Address",
+    "homePageFilmTitle":"Find hidden gems",
+    "homePageFilmButton":"Browse Films"
   },
   "Index": {
     "mainPage": "This is the main page",
@@ -35,7 +39,6 @@
       "returnHome": "Return home"
     }
   },
-
   "Footer": {
     "copyright": "© 2025 Next.js i18n Template. Open source under MIT license.",
     "githubLink": "GitHub"
@@ -100,5 +103,12 @@
   },
   "Carousel": {
     "getTicket": "Get a ticket"
+  },
+  "MainSearch": {
+    "cinemaDate": "Show Date",
+    "cinemaName": "Show Name",
+    "cinemas": "Cinemas",
+    "city": "City",
+    "search": "Search"
   }
 }

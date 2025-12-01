@@ -1,193 +1,125 @@
-// .productCardContainer {
-//     height: 547px;
-//     width: 362px;
-//     position: relative;
-//     border-radius: 15px;
-//     overflow: hidden;
-
-//     .productCardMainImg {
-//         position: relative;
-//         width: 100%;
-//         height: 100%;
-//         object-fit: cover;
-//     }
-
-//     &:hover ::before {
-//         content: '';
-//         position: absolute;
-//         top: 0;
-//         left: 0;
-//         width: 100%;
-//         height: 100%;
-//         background-color: rgba(255, 255, 255, 0.5);
-//         backdrop-filter: blur(30px);
-//         z-index: 1;
-//     }
-
-//     &:hover .productCardContent {
-//         width: 90%;
-//     }
-
-//     &:hover .productCardHidedImg {
-//         display: block;
-//     }
-// }
-
-// .productCardHidedImg {
-//     display: none;
-//     width: 50%;
-//     height: 50%;
-//     object-fit: cover;
-//     position: relative;
-// }
-
-// .productCardHidedContent {
-//     position: absolute;
-//     bottom: 66px;
-//     left: 50%;
-//     transform: translateX(-50%);
-//     width: 100%;
-//     display: flex;
-//     flex-direction: column;
-//     align-items: center;
-//     justify-content: center;
-//     z-index: 10;
-// }
-
-// .productCardContent {
-
-//     width: 50%;
-//     height: 40%;
-//     max-width: 215px;
-//     max-height: 119px;
-//     padding: 12px 11px 6px 10px;
-//     background-color: rgba(255, 255, 255, 0.5);
-//     backdrop-filter: blur(30px);
-//     border-radius: 5px;
-
-//     img {
-//         display: none;
-//     }
-
-//     .productCardContentTime {
-//         font-size: 14px;
-//     }
-
-//     .productCardContentTimeTitle {
-//         font-size: 7px;
-//     }
-
-//     .productCardContentTimeTitle,
-//     .productCardContentTime {
-//         color: #000000;
-//         font-family: 'Montserrat';
-//     }
-// }
-
-
-
 .productCardContainer {
     height: 547px;
-    width: 362px;
+    max-width: 411px;
     position: relative;
     border-radius: 15px;
     overflow: hidden;
-
-    // Ավելացրու pseudo-element առանց hover-ի
-    &::before {
-        content: '';
-        position: absolute;
-        top: 0;
-        left: 0;
-        width: 100%;
-        height: 100%;
-        background-color: rgba(255, 255, 255, 0);
-        backdrop-filter: blur(0px);
-        z-index: 1;
-        transition: all 0.3s ease; // Անցումային էֆեկտ
-        pointer-events: none; // Որպեսզի չխանգարի click event-ներին
-    }
-
-    .productCardMainImg {
-        position: relative;
-        width: 100%;
-        height: 100%;
-        object-fit: cover;
-    }
-
-    &:hover::before {
-        background-color: transparent;
-        backdrop-filter: blur(5px);
-    }
-
-    &:hover .productCardContent {
-        width: 95%;
-        max-width: 95%;
-        height: 203px;
-    }
-
-    &:hover .productCardHidedImg {
-        display: block;
-        opacity: 1;
+    display: flex;
+    align-items: flex-end;
+&:before{
+    transition: 1.2s all ease;
+}
+    &:hover:before {
+        
+            content: '';
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            top: 0;
+            left: 0;
+           background: transparent;
+            backdrop-filter: blur(10px);
+            z-index: 3;
+        
     }
 
     &:hover .productCardHidedContent {
-        bottom: 5px;
-    }
-}
+        transform: scale(1);
+        // .productCardContent {
+        //     transform: scale(1);
+        // }
 
-.productCardHidedImg {
-    display: none;
-    width: 50%;
-    height: 50%;
-    object-fit: cover;
-    position: relative;
-    border-radius: 10px;
-    opacity: 0;
-    transition: opacity 0.3s ease;
-}
+        .productCardGet {
+            justify-content: space-between;
 
-.productCardHidedContent {
-    position: absolute;
-    bottom: 66px;
-    left: 50%;
-    transform: translateX(-50%);
-    width: 100%;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    z-index: 10;
-    gap: 20px;
-    transition: bottom 0.7s ease;
-}
+            button {
+                visibility: visible;
+            }
+        }
 
-.productCardContent {
-    width: 50%;
-    height: 40%;
-    max-width: 215px;
-    max-height: 119px;
-    padding: 12px 11px 6px 10px;
-    background-color: rgba(255, 255, 255, 0.5);
-    backdrop-filter: blur(30px);
-    border-radius: 5px;
-    transition: width 0.3s ease, max-width 0.3s ease, height 0.1s ease;
+        .productCardHidedImg {
+            visibility: visible;
+        }
 
-    img {
-        display: none;
+        .productCardContentTime {
+            gap: 36px;
+        }
     }
 
-    .productCardContentTime {
-        font-size: 14px;
+    .productCardMainImg {
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        top: 0;
+        left: 0;
     }
 
-    .productCardContentTimeTitle {
-        font-size: 7px;
-    }
+    .productCardHidedContent {
+        z-index: 5;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-direction: column;
+        gap: 20px;
+        margin-bottom: 11px;
+        transform: scale(0.7);
+        transition: 1.2s all ease;
 
-    .productCardContentTimeTitle,
-    .productCardContentTime {
-        color: #000000;
-        font-family: 'Montserrat';
+        .productCardContent {
+            width: 97%;
+            // height: 40%;
+            background-color: rgba(255, 255, 255, 0.7);
+            backdrop-filter: blur(30px);
+            border-radius: 15px;
+            padding: 20px 10px 16px 20px;
+            transition: all 1.2s ease;
+
+        }
+
+        .productCardHidedImg {
+            box-sizing: border-box;
+            width: 50%;
+            border-radius: 15px;
+            visibility: hidden;
+            transition: 1.2s all ease;
+        }
+
+        .productCardContentTime {
+            display: flex;
+            flex-direction: column;
+            gap: 18px;
+            transition: 1.2s all ease;
+
+            p {
+                color: #000000;
+                margin: 0 !important;
+            }
+
+            .productCardContentTime {
+                font-size: 24px;
+            }
+
+            .productCardContentTimeTitle {
+                font-size: 12px;
+            }
+        }
+
+        .productCardGet {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+
+            button {
+                visibility: hidden;
+                transition: all 1.2s ease-in;
+            }
+
+            .productCardisActiv {
+                width: 10px;
+                height: 10px;
+                border-radius: 50%;
+                background-color: #F30745;
+            }
+        }
     }
 }

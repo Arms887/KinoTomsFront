@@ -1,12 +1,13 @@
-.homePageSecondMainBlock{
+.homePageSecondMainBlock {
     margin-top: 100px;
 }
+
 .title {
     background: linear-gradient(90deg, #FFFFFF 0%, #F30745 100%);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     background-clip: text;
-    width: fit-content; 
+    width: fit-content;
     font-family: var(--font-montserrat-arm), sans-serif;
     font-size: 35px;
     font-weight: 700;
@@ -14,4 +15,25 @@
     letter-spacing: 0.05em;
     text-decoration: none;
     margin-bottom: 58px !important;
-  }
+}
+
+.homePageSecondCards {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    gap: 61px;
+
+    .homePageSecondNormalCards,
+    .homePageSecondLittleCards {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        justify-content: space-between;
+    }
+}
+
+.homePageSecondLittleCard {
+    width: 25%;
+}

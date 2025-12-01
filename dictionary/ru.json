@@ -1,6 +1,10 @@
 {
   "HomePageSecond": {
-    "homePageSecondTitle": "Кинотеатры"
+    "homePageSecondTitle": "Кинотеатры",
+    "homePageSearchTitle": "Присоединяйтесь к нам",
+    "homePageSearchPlaceholder": "Эл. почта",
+    "homePageFilmTitle": "Найдите скрытые жемчужины",
+    "homePageFilmButton": "Просмотреть фильмы"
   },
   "Index": {
     "mainPage": "Это главная страница",
@@ -99,5 +103,12 @@
   },
   "Carousel": {
     "getTicket": "Получить билет"
+  },
+  "MainSearch": {
+    "cinemaDate": "Дата показа",
+    "cinemaName": "Название показа",
+    "cinemas": "Кинотеатры",
+    "city": "Город",
+    "search": "Поиск"
   }
 }
