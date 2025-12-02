@@ -2,16 +2,18 @@ import { DatePickerIcon } from "../../../public/svg/datePicker"
 import { PinkButton } from "../ui/pinkButton"
 import styles from "./product.module.scss"
 import Image, { StaticImageData } from "next/image"
+import { Link } from "@/i18n/navigation"
 
 interface ProductCardProps {
     img?: StaticImageData | string
     time?: string
     title?: string
     className?: string
+    id?: string | number
 }
 
-function ProductCard({ img, time, title,className }: ProductCardProps) {
-    return (
+function ProductCard({ img, time, title, className, id }: ProductCardProps) {
+    const cardContent = (
         <div className={`${className} ${styles.productCardContainer}`}>
             <Image className={styles.productCardMainImg} src={img as StaticImageData} alt="" />
             <div className={styles.productCardHidedContent}>
@@ -29,6 +31,16 @@ function ProductCard({ img, time, title,className }: ProductCardProps) {
             </div>
         </div>
     )
+
+    if (id) {
+        return (
+            <Link href={`/product/${id}`}>
+                {cardContent}
+            </Link>
+        )
+    }
+
+    return cardContent
 }
 
 export { ProductCard }

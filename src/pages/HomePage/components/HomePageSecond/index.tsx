@@ -1,38 +1,13 @@
 import { useTranslations } from "next-intl";
+import { Row, Col } from "antd";
 import styles from "./homePageSecond.module.scss";
 import { CinemaLittleCards } from "@/components/CinemaLittleCards";
 import { MainSearch } from "@/components/MainSearch";
-import img1 from "./../../../../../public/assets/img/image 1.png";
-import img2 from "./../../../../../public/assets/img/image 4.png";
-import img3 from "./../../../../../public/assets/img/image 7.png";
-import img4 from "./../../../../../public/assets/img/image 9.png";
 import { ProductCard } from "@/components/ProductCard";
 import { LittleProductCard } from "@/components/LittleProductCard";
+import { testArray } from "@/halpers/constants/indext";
 export default function HomePageSecond() {
     const t = useTranslations("HomePageSecond");
-    const testArray = [
-        {
-            img: img4,
-            time: "Նոյեմբեր Հինգշաբթի",
-            title: "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.",
-        },
-        {
-            img: img2,
-            time: "Նոյեմբեր Հինգշաբթի",
-            title: "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.",
-        },
-        {
-            img: img3,
-            time: "Նոյեմբեր Հինգշաբթի",
-            title: "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.",
-        },
-        {
-            img: img4,
-            time: "Նոյեմբեր Հինգշաբթի",
-            title: "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.",
-        },
-
-    ]
     return (
         <div className={styles.homePageSecondMainBlock}>
             <div className="container">
@@ -41,15 +16,51 @@ export default function HomePageSecond() {
                     <CinemaLittleCards />
                     <MainSearch />
                     <div className={styles.homePageSecondCards}>
-                        <div className={styles.homePageSecondNormalCards}>
+                        <Row className={styles.homePageSecondNormalCards} gutter={[10, 10]}>
                             {testArray.map((item, index) => (
-                                <ProductCard className={styles.homePageSecondLittleCard}  key={index} img={item.img} time={item.time} title={item.title} />
+                                <Col
+                                    key={index}
+                                    xs={24}
+                                    sm={12}
+                                    md={12}
+                                    lg={6}
+                                    xl={6}
+                                >
+                                    <ProductCard className={styles.homePageSecondLittleCard} id={item.id} img={item.img} time={item.time} title={item.title} />
+                                </Col>
                             ))}
-                        </div>
-                        <div className={styles.homePageSecondLittleCards}>
+                        </Row>
+                        <Row className={styles.homePageSecondLittleCards} gutter={[10, 10]}>
                             {testArray.map((item, index) => (
-                                <LittleProductCard className={styles.homePageSecondLittleCard} key={index} img={item.img} />
+                                <Col
+                                    key={index}
+                                    xs={24}
+                                    sm={12}
+                                    md={12}
+                                    lg={6}
+                                    xl={6}
+                                >
+                                    <LittleProductCard className={styles.homePageSecondLittleCard} img={item.img} />
+                                </Col>
                             ))}
+                        </Row>
+                        <div className={styles.homePageSecondCardsWithWalls}>
+                            <div className={styles.homePageSecondCardWall}></div>
+                            <Row className={styles.homePageSecondNormalCards} gutter={[10, 10]}>
+                                {testArray.slice(0, 3).map((item, index) => (
+                                    <Col
+                                        key={index}
+                                        xs={24}
+                                        sm={24}
+                                        md={12}
+                                        lg={12}
+                                        xl={8}
+                                    >
+                                        <ProductCard className={styles.homePageSecondLittleCard} id={item.id} img={item.img} time={item.time} title={item.title} />
+                                    </Col>
+                                ))}
+                            </Row>
+                            <div className={styles.homePageSecondCardWall}></div>
                         </div>
                     </div>
                 </div>

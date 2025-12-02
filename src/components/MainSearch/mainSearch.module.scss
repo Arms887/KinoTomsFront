@@ -37,7 +37,7 @@
 //     display: flex;
 //     flex-direction: column;
 //     gap: 8px;
-    
+
 //     p {
 //         font-size: 20px;
 //         color: #ffffff;
@@ -51,7 +51,7 @@
 //     display: flex;
 //     align-items: center;
 //     gap: 19px;
-    
+
 //     svg {
 //         flex-shrink: 0;
 //     }
@@ -69,13 +69,13 @@
 //     &:hover {
 //         border-bottom-color: transparent !important;
 //     }
-    
+
 //     &:focus,
 //     &.ant-picker-focused {
 //         border-bottom-color: transparent !important;
 //         box-shadow: none !important;
 //     }
-    
+
 //     :global(.ant-picker-input) {
 //         display: flex !important;
 //         align-items: center;
@@ -83,7 +83,7 @@
 //             display: none;
 //         }
 //     }
-    
+
 //     input {
 //         background: transparent !important;
 //         color: #ffffff !important;
@@ -93,7 +93,7 @@
 //             opacity: 0.7;
 //         }
 //     }
-    
+
 //     .ant-picker-suffix {
 //         display: none !important;
 //     }
@@ -107,25 +107,25 @@
 //     color: #ffffff !important;
 //     font-size: 16px !important;
 //     padding: 0 !important;
-    
+
 //     &::placeholder {
 //         color: #ffffff !important;
 //         opacity: 0.7;
 //     }
-    
+
 //     &:hover {
 //         border-bottom-color: #ffffff !important;
 //     }
-    
+
 //     &:focus {
 //         border-bottom-color: #ffffff !important;
 //         box-shadow: none !important;
 //     }
-    
+
 //     input {
 //         background: transparent !important;
 //         color: #ffffff !important;
-        
+
 //         &::placeholder {
 //             color: #ffffff !important;
 //             opacity: 0.7;
@@ -141,11 +141,11 @@
 //     color: #ffffff !important;
 //     font-size: 16px !important;
 //     padding: 8px 0 !important;
-    
+
 //     &:hover {
 //         border-bottom-color: #ffffff !important;
 //     }
-    
+
 //     :global(.ant-select-selector) {
 //         background: transparent !important;
 //         border: none !important;
@@ -168,15 +168,15 @@
 //             padding-inline-end: 30px !important;
 //         }
 //     }
-    
+
 //     :global(.ant-select-arrow) {
 //         color: #ffffff !important;
 //     }
-    
+
 //     &:hover :global(.ant-select-selector) {
 //         border-bottom-color: #ffffff !important;
 //     }
-    
+
 //     &:global(.ant-select-focused) :global(.ant-select-selector) {
 //         border-bottom-color: #ffffff !important;
 //         box-shadow: none !important;
@@ -198,7 +198,7 @@
     padding: 16px 75px 10px 75px;
     width: 100%;
     position: relative;
-    
+
     &::before {
         content: '';
         position: absolute;
@@ -230,7 +230,7 @@
     display: flex;
     flex-direction: column;
     gap: 8px;
-    
+
     p {
         font-size: 20px;
         color: #ffffff;
@@ -244,7 +244,7 @@
     display: flex;
     align-items: center;
     gap: 19px;
-    
+
     svg {
         flex-shrink: 0;
     }
@@ -259,35 +259,37 @@
     padding: 0 !important;
     flex: 1;
     max-width: 150px;
-    
+
     &:hover {
         border-bottom-color: transparent !important;
     }
-    
+
     &:focus,
     &.ant-picker-focused {
         border-bottom-color: transparent !important;
         box-shadow: none !important;
     }
-    
+
     :global(.ant-picker-input) {
         display: flex !important;
         align-items: center;
-        svg{
+
+        svg {
             display: none;
         }
     }
-    
+
     input {
         background: transparent !important;
         color: #ffffff !important;
         font-size: 22px;
+
         &::placeholder {
             color: #ffffff !important;
             opacity: 0.7;
         }
     }
-    
+
     .ant-picker-suffix {
         display: none !important;
     }
@@ -301,25 +303,25 @@
     color: #ffffff !important;
     font-size: 16px !important;
     padding: 0 !important;
-    
+
     &::placeholder {
         color: #ffffff !important;
         opacity: 0.7;
     }
-    
+
     &:hover {
         border-bottom-color: #ffffff !important;
     }
-    
+
     &:focus {
         border-bottom-color: #ffffff !important;
         box-shadow: none !important;
     }
-    
+
     input {
         background: transparent !important;
         color: #ffffff !important;
-        
+
         &::placeholder {
             color: #ffffff !important;
             opacity: 0.7;
@@ -334,42 +336,46 @@
     color: #ffffff !important;
     font-size: 16px !important;
     padding: 8px 0 !important;
-    
+
     &:hover {
         border-bottom-color: #ffffff !important;
     }
-    
+
     :global(.ant-select-selector) {
         background: transparent !important;
         border: none !important;
         border-radius: 0 !important;
         padding: 0 !important;
-        input{
+
+        input {
             opacity: 1 !important;
             border-bottom: 1px solid #ffffff !important;
         }
+
         :global(.ant-select-selection-placeholder) {
             color: #ffffff !important;
             opacity: 0.7;
             padding-inline-end: 30px !important;
         }
+
         :global(.ant-select-selection-search) {
             padding-inline-end: 30px !important;
         }
+
         :global(.ant-select-selection-item) {
             color: #ffffff !important;
             padding-inline-end: 30px !important;
         }
     }
-    
+
     :global(.ant-select-arrow) {
         color: #ffffff !important;
     }
-    
+
     &:hover :global(.ant-select-selector) {
         border-bottom-color: #ffffff !important;
     }
-    
+
     &:global(.ant-select-focused) :global(.ant-select-selector) {
         border-bottom-color: #ffffff !important;
         box-shadow: none !important;
@@ -381,18 +387,18 @@
     .mainSearchContainer {
         padding: 16px 50px 10px 50px;
     }
-    
+
     .mainSearchInputContainer {
         gap: 8px;
         width: 75%;
     }
-    
+
     .mainSearchInputItem {
         p {
             font-size: 18px;
         }
     }
-    
+
     .datePicker {
         input {
             font-size: 20px;
@@ -404,7 +410,7 @@
     .mainSearchContainer {
         padding: 16px 30px 10px 30px;
     }
-    
+
     .mainSearchInputContainer {
         width: 70%;
     }
@@ -416,29 +422,30 @@
         padding: 16px 20px 10px 20px;
         flex-direction: column;
         gap: 20px;
+        align-items: flex-start;
     }
-    
+
     .mainSearchInputContainer {
         width: 100%;
         flex-wrap: wrap;
         gap: 15px;
     }
-    
+
     .mainSearchInputItem {
         width: calc(50% - 7.5px);
-        
+
         p {
             font-size: 16px;
         }
     }
-    
+
     .datePickerWrapper {
         gap: 12px;
     }
-    
+
     .datePicker {
         max-width: 100%;
-        
+
         input {
             font-size: 18px;
         }
@@ -451,26 +458,26 @@
         padding: 14px 16px 10px 16px;
         gap: 16px;
     }
-    
+
     .mainSearchInputContainer {
         gap: 12px;
     }
-    
+
     .mainSearchInputItem {
         width: calc(50% - 6px);
         gap: 6px;
-        
+
         p {
             font-size: 15px;
         }
     }
-    
+
     .datePicker {
         input {
             font-size: 16px;
         }
     }
-    
+
     .textInput,
     .selectInput {
         font-size: 14px !important;
@@ -483,36 +490,36 @@
         padding: 12px 12px 10px 12px;
         gap: 14px;
     }
-    
+
     .mainSearchInputContainer {
         flex-direction: column;
         gap: 14px;
     }
-    
+
     .mainSearchInputItem {
         width: 100%;
         gap: 6px;
-        
+
         p {
             font-size: 14px;
         }
     }
-    
+
     .datePickerWrapper {
         gap: 10px;
-        
+
         svg {
             width: 18px;
             height: 18px;
         }
     }
-    
+
     .datePicker {
         input {
             font-size: 15px;
         }
     }
-    
+
     .textInput,
     .selectInput {
         font-size: 13px !important;
@@ -526,34 +533,34 @@
         gap: 12px;
         border-radius: 8px;
     }
-    
+
     .mainSearchInputContainer {
         gap: 12px;
     }
-    
+
     .mainSearchInputItem {
         gap: 5px;
-        
+
         p {
             font-size: 13px;
         }
     }
-    
+
     .datePickerWrapper {
         gap: 8px;
-        
+
         svg {
             width: 16px;
             height: 16px;
         }
     }
-    
+
     .datePicker {
         input {
             font-size: 14px;
         }
     }
-    
+
     .textInput,
     .selectInput {
         font-size: 12px !important;
