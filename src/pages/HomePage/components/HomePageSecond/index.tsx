@@ -26,7 +26,7 @@ export default function HomePageSecond() {
                                     lg={6}
                                     xl={6}
                                 >
-                                    <ProductCard className={styles.homePageSecondLittleCard} id={item.id} img={item.img} time={item.time} title={item.title} />
+                                    <ProductCard id={item.id} img={item.img} time={item.time} title={item.title} />
                                 </Col>
                             ))}
                         </Row>

@@ -1,0 +1,115 @@
+.ticketCardMainBlock {
+    width: 550px;
+    min-height: 300px;
+    border-radius: 20px;
+    background-color: #282534;
+
+    .ticketCardContent {
+        padding: 20px 30px;
+    }
+    
+}
+
+.ticketCardTop {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 44px;
+
+    .ticketCardTopImg {
+        width: 200px;
+        height: 64px;
+
+        img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+    }
+}
+
+.ticketCardTopLeft {
+    display: flex;
+    align-items: flex-end;
+    gap: 6px;
+
+    .ticketCardTopLeftDay {
+        font-size: 80px;
+        color: #ffffff;
+        font-weight: 600;
+        margin-bottom: 0;
+        line-height: 0.7;
+    }
+
+    .ticketCardTopLeftTime {
+        span {
+            font-size: 16px;
+            color: #ffffff;
+            font-weight: 600;
+        }
+
+        p {
+            font-size: 14px;
+            font-weight: 500;
+            color: #F30745;
+            margin: 0;
+        }
+    }
+}
+
+.ticketCardCenter {
+    width: 100%;
+
+    .ticketCardCenterContent {
+        max-width: 360px;
+        display: flex;
+        align-items: center;
+        flex-wrap: wrap;
+        row-gap: 20px;
+        column-gap: 30px;
+
+        .ticketCardCenterTime {
+            position: relative;
+            width: 100px;
+            height: 50px;
+            border-radius: 10px;
+            background-color: rgba(255, 255, 255, 0.25); // կամ քո background-ը
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            p {
+                font-size: 30px;
+                color: #ffffff;
+                font-weight: 600;
+                margin: 0;
+            }
+
+            &::before {
+                content: "";
+                position: absolute;
+                inset: 0;
+                padding: 1px;
+                border-radius: inherit;
+                background: linear-gradient(90deg,
+                        rgba(255, 255, 255, 0.3) 30%,
+                        rgba(0, 0, 0, 0) 100%);
+                -webkit-mask:
+                    linear-gradient(#fff 0 0) content-box,
+                    linear-gradient(#fff 0 0);
+                mask:
+                    linear-gradient(#fff 0 0) content-box,
+                    linear-gradient(#fff 0 0);
+                -webkit-mask-composite: xor;
+                mask-composite: exclude;
+            }
+        }
+
+    }
+}
+
+.ticketCardBottom {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+}

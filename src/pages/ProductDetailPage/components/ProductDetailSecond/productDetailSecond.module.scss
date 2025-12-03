@@ -18,3 +18,22 @@
         border-radius: 25px;
     }
 }
+.productTimesBlock{
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+.ProductDetailNormalCards {
+    width: 100%;
+    flex: 1;
+    min-width: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    :global(.ant-col) {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+}

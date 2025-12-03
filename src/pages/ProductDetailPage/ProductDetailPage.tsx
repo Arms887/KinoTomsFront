@@ -6,6 +6,7 @@ import Image from "next/image";
 import { PinkButton } from "@/components/ui/pinkButton";
 import { testArray } from "@/halpers/constants/indext";
 import ProductDetailSecond from "./components/ProductDetailSecond";
+import ProductDetailFirst from "./components/ProductDetailFirst";
 
 interface ProductDetailPageProps {
     productId: string;
@@ -27,6 +28,7 @@ export default function ProductDetailPage({ productId }: ProductDetailPageProps)
 
     return (
         <div className={styles.productDetailContainer}>
+            <ProductDetailFirst />
             <div className="container">
                 <ProductDetailSecond />
             </div>

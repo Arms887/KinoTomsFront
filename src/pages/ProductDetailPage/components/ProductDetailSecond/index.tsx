@@ -1,13 +1,41 @@
 import { useTranslations } from "next-intl";
 import styles from "./productDetailSecond.module.scss"
+import { Col, Row } from "antd";
+import { testArray } from "@/halpers/constants/indext";
+import { ProductCard } from "@/components/ProductCard";
+import { TimeButton } from "@/components/ui/timeButton";
+import { TicketCard } from "@/components/TicketCard";
 export default function ProductDetailSecond() {
     const t = useTranslations("ProductDetail");
 
 
     return (
         <div className={styles.productDetailContainer}>
+            
             <div>
                 <p className={styles.productDetailTitle}>Ժամանակացույց</p>
+                <div className={styles.productTimesBlock}>
+                    {[...Array(3)].map((_, i) => (
+                        <TimeButton month={"Դեկ"} day={"5"} />
+                    ))}
+                </div>
+
+                <div className={styles.ProductDetailTicketsBlock}>
+                    <Row className={styles.ProductDetailNormalCards} gutter={[10, 10]}>
+                        {[...Array(3)].map((_, i) => (
+                            <Col
+                                key={i}
+                                xs={24}
+                                sm={12}
+                                md={12}
+                                lg={8}
+                                xl={8}
+                            >
+                                <TicketCard />
+                            </Col>
+                        ))}
+                    </Row>
+                </div>
             </div>
             <div>
                 <p className={styles.productDetailTitle}>նկարագրություն</p>
@@ -19,8 +47,25 @@ export default function ProductDetailSecond() {
                     src="https://yandex.ru/map-widget/v1/?ll=37.620070%2C55.753630&z=12"
                     width="560"
                     height="400"
-                    >
-                </iframe>            </div>
+                >
+                </iframe>
+            </div>
+            <div>
+                <Row className={styles.ProductDetailNormalCards} gutter={[10, 10]}>
+                    {testArray.map((item, index) => (
+                        <Col
+                            key={index}
+                            xs={24}
+                            sm={12}
+                            md={12}
+                            lg={6}
+                            xl={6}
+                        >
+                            <ProductCard id={item.id} img={item.img} time={item.time} title={item.title} />
+                        </Col>
+                    ))}
+                </Row>
+            </div>
         </div>
     );
 }
