@@ -5,9 +5,9 @@
     background-color: rgba(243, 7, 69, 1);
     border: 1px solid transparent;
     color: #ffffff;
-    border-radius: 10px;
+    border-radius: 15px;
     padding: 0.75rem 2rem;
-    font-size: 1rem;
+    font-size: 18;
     font-weight: 500;
     cursor: pointer;
     transition: all 0.2s ease;
@@ -29,12 +29,12 @@
 
     @media (max-width: 768px) {
         padding: 0.6rem 1.5rem;
-        font-size: 0.9rem;
+        font-size: 13;
     }
 
     @media (max-width: 480px) {
         padding: 0.5rem 1.2rem;
-        font-size: 0.85rem;
+        font-size: 10;
     }
   }
   

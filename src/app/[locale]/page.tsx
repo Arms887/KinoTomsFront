@@ -1,6 +1,6 @@
 import { use } from "react";
 import { setRequestLocale } from "next-intl/server";
-import HomePage from "@/pages/HomePage/HomePage";
+import HomePage from "@/pagesComponents/HomePage/HomePage";
 
 export default function HomePageWrapper({
   params,

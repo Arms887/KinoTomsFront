@@ -1,11 +1,112 @@
+// .cinemaLittleCardsContainer {
+//   width: 100%;
+//   display: flex;
+//   overflow-x: scroll;
+//   align-items: center;
+//   margin-bottom: 68px;
+//   gap: 35px;
+// }
+
+// .cinemaLittleCardsMainBlock {
+//   width: 100%;
+//   display: flex;
+//   align-items: center;
+//   justify-content: center;
+// }
+
+// .cinemaLittleCard {
+//   position: relative;
+//   background: rgba(0, 0, 0, 0.3);
+//   border-radius: 10px;
+//   cursor: pointer;
+//   margin: 0 auto;
+//   display: flex;
+//   align-items: center;
+//   gap: 10px;
+//   padding: 0.25em;
+
+//   &::before {
+//     content: '';
+//     position: absolute;
+//     inset: 0;
+//     border-radius: 10px;
+//     padding: 1px; // Border-ի հաստություն
+//     background: linear-gradient(90deg, #8D0428 0%, #FFFFFF 100%);
+//     -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+//     -webkit-mask-composite: xor;
+//     mask-composite: exclude;
+//   }
+
+//   &:hover::before {
+//     background: linear-gradient(90deg, #8D0428 0%, #FFFFFF 100%);
+//   }
+
+//   .cinemaLittleCardImage {
+//     width: 70px;
+//     height: 70px;
+//     border-radius: 10px;
+//     overflow: hidden;
+
+//     img {
+//       width: 100%;
+//       height: 100%;
+//       object-fit: cover;
+//     }
+//   }
+
+//   p {
+//     font-size: 14px;
+//     margin: 0;
+//     color: #ffffff;
+//     font-weight: 400;
+//     text-align: left;
+//     text-wrap: nowrap;
+//     overflow: hidden;
+//     text-overflow: ellipsis;
+//     white-space: nowrap;
+//     max-width: 100%;
+//   }
+// }
+
+
+// @media screen and (max-width: 768px) {
+//   .cinemaLittleCardsContainer {
+//     margin-bottom: 58px;
+//   }
+// }
+
+// @media screen and (max-width: 576px) {
+//   .cinemaLittleCardsContainer {
+//     margin-bottom: 40px;
+//   }
+// }
+
+// @media screen and (max-width: 468px) {
+//   .cinemaLittleCardsContainer {
+//     margin-bottom: 25px;
+//   }
+// }
+
 .cinemaLittleCardsContainer {
   width: 100%;
   display: flex;
-  flex-wrap: wrap;
-  justify-content: space-between;
+  overflow-x: scroll;
   align-items: center;
   margin-bottom: 68px;
-  gap: 35px;
+  gap: 8px;
+  cursor: grab;
+
+  // Թաքցնել scrollbar-ը բոլոր browser-ներում
+  scrollbar-width: none; // Firefox
+  -ms-overflow-style: none; // IE և Edge
+
+  &::-webkit-scrollbar {
+    display: none; // Chrome, Safari, Opera
+  }
+
+  &:active {
+    cursor: grabbing;
+  }
 }
 
 .cinemaLittleCardsMainBlock {
@@ -17,22 +118,22 @@
 
 .cinemaLittleCard {
   position: relative;
-  width: 18%;
-  max-width: 335px;
-  min-width: 200px;
-  height: 100px;
   background: rgba(0, 0, 0, 0.3);
   border-radius: 10px;
   cursor: pointer;
   margin: 0 auto;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 0.25em;
+  user-select: none; // Prevent text selection during drag
 
-  // Gradient border-ի համար
   &::before {
     content: '';
     position: absolute;
     inset: 0;
     border-radius: 10px;
-    padding: 1px; // Border-ի հաստություն
+    padding: 1px;
     background: linear-gradient(90deg, #8D0428 0%, #FFFFFF 100%);
     -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
     -webkit-mask-composite: xor;
@@ -42,24 +143,40 @@
   &:hover::before {
     background: linear-gradient(90deg, #8D0428 0%, #FFFFFF 100%);
   }
+
+  .cinemaLittleCardImage {
+    width: 70px;
+    height: 70px;
+    border-radius: 10px;
+    overflow: hidden;
+    pointer-events: none; // Prevent image dragging
+
+    img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+  }
+
+  p {
+    font-size: 14px;
+    padding: 10px;
+    margin: 0;
+    color: #ffffff;
+    font-weight: 400;
+    text-align: left;
+    text-wrap: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    max-width: 100%;
+  }
 }
 
-@media screen and (max-width: 1200px) {
-  .cinemaLittleCard {
-    height: 90px;
-    width: 24%;
-  }
-  
-}
 
 @media screen and (max-width: 768px) {
   .cinemaLittleCardsContainer {
     margin-bottom: 58px;
-  }
-
-  .cinemaLittleCard {
-    height: 85px;
-    max-width: 100%;
   }
 }
 
@@ -67,19 +184,10 @@
   .cinemaLittleCardsContainer {
     margin-bottom: 40px;
   }
-
-  .cinemaLittleCard {
-    height: 80px;
-  }
 }
 
 @media screen and (max-width: 468px) {
   .cinemaLittleCardsContainer {
     margin-bottom: 25px;
-  }
-
-  .cinemaLittleCard {
-    height: 70px;
-    width: 100%;
   }
 }

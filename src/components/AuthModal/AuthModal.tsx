@@ -41,6 +41,7 @@ export default function AuthModal({ isOpen, onClose, defaultTab = "login" }: Aut
 
   const [passwordError, setPasswordError] = useState<string>("");
   const [confirmPasswordError, setConfirmPasswordError] = useState<string>("");
+  const [registerSuccessMessage, setRegisterSuccessMessage] = useState<string>("");
 
   // Password validation regex - matches backend pattern
   const PASSWORD_REGEXP = /^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[!?@#$%^&*()-_+=,./])(?=.{8,})/;
@@ -113,20 +114,19 @@ export default function AuthModal({ isOpen, onClose, defaultTab = "login" }: Aut
       const response = await registerApi.register(registerData);
 
       if (response.data) {
-        // Auto login after registration
-        const loginResponse = await loginApi.login({
-          email: registerData.email,
-          password: registerData.password,
-          remember: true,
+        // Show success message
+        setRegisterSuccessMessage(t("checkYourEmail") || "Խնդրում ենք ստուգեք ձեր էլ. փոստը");
+        // Reset form
+        setRegisterData({
+          email: "",
+          password: "",
+          confirmPassword: "",
+          name: "",
+          surname: "",
+          phone: "",
         });
-
-        if (loginResponse.data && loginResponse.data.access_token) {
-          tokenManager.setTokens(loginResponse.data.access_token, loginResponse.data.refresh_token);
-          await fetchUser();
-          onClose();
-        } else {
-          alert(t("registerSuccess") + " " + (loginResponse.error || ""));
-        }
+        setPasswordError("");
+        setConfirmPasswordError("");
       } else {
         // Handle validation errors from backend
         let errorMessage = response.error || response.message || t("registerError");
@@ -207,6 +207,21 @@ export default function AuthModal({ isOpen, onClose, defaultTab = "login" }: Aut
             <X className={styles.closeIcon} />
           </button>
         </div>
+
+        {registerSuccessMessage && (
+          <div style={{ 
+            color: "#27ae60", 
+            fontSize: "0.875rem", 
+            padding: "0.75rem 1rem",
+            backgroundColor: "#d4edda",
+            borderRadius: "4px",
+            border: "1px solid #c3e6cb",
+            margin: "0 1rem 1rem 1rem",
+            textAlign: "center"
+          }}>
+            {registerSuccessMessage}
+          </div>
+        )}
 
         <Tabs value={activeTab} onValueChange={(v) => setActiveTab(v as "login" | "register" | "forgot")} className={styles.tabs}>
           <TabsList className={styles.tabsList}>

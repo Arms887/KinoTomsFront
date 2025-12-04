@@ -1,6 +1,6 @@
 import { use } from "react";
 import { setRequestLocale } from "next-intl/server";
-import ContactPage from "@/pages/ContactPage/ContactPage";
+import ContactPage from "@/pagesComponents/ContactPage/ContactPage";
 
 export default function ContactPageWrapper({
   params,

@@ -1,5 +1,6 @@
 import { useState, useEffect, useRef } from 'react';
 import { useTranslations } from 'next-intl';
+import Image from 'next/image';
 import styles from './carousel.module.scss';
 import { PinkButton } from '../ui/pinkButton';
 
@@ -15,7 +16,7 @@ interface ImageSliderProps {
 
 const ImageSlider: React.FC<ImageSliderProps> = ({ images, buttons }) => {
   const t = useTranslations('Carousel');
-  const [activeIndex, setActiveIndex] = useState(0);
+  const [activeIndex, setActiveIndex] = useState(1);
   const [isMounted, setIsMounted] = useState(false);
   const trackRef = useRef<HTMLDivElement>(null);
   const wrapperRef = useRef<HTMLDivElement>(null);
@@ -36,27 +37,27 @@ const ImageSlider: React.FC<ImageSliderProps> = ({ images, buttons }) => {
 
   const calculateTransform = () => {
     if (!wrapperRef.current || images.length === 0 || !isMounted) return 'translateX(0)';
-    
+
     const slideWidth = getSlideWidth();
     const gap = getGap();
     const wrapperWidth = wrapperRef.current.offsetWidth;
-    
+
     // Ստուգում ենք, թե արդյոք wrapper-ը պատրաստ է
     if (wrapperWidth === 0) return 'translateX(0)';
-    
+
     // Հաշվարկում ենք, թե որքան պետք է shift անել
     // Active slide-ը պետք է լինի viewport-ի կենտրոնում
     const slideWithGap = slideWidth + gap;
     const offset = activeIndex * slideWithGap;
     const centerOffset = (wrapperWidth / 2) - (slideWidth / 2);
-    
+
     return `translateX(calc(-${offset}px + ${centerOffset}px))`;
   };
 
   // Initial mount-ի համար - ստուգում ենք, թե արդյոք DOM-ը պատրաստ է
   useEffect(() => {
     if (images.length === 0) return;
-    
+
     // Ստուգում ենք, թե արդյոք wrapper-ը պատրաստ է
     const checkMount = () => {
       if (wrapperRef.current && wrapperRef.current.offsetWidth > 0) {
@@ -72,18 +73,18 @@ const ImageSlider: React.FC<ImageSliderProps> = ({ images, buttons }) => {
         });
       }
     };
-    
+
     checkMount();
   }, [images.length]);
 
   useEffect(() => {
     if (images.length === 0) return;
-    
+
     const interval = setInterval(() => {
       setActiveIndex((prevIndex) => {
         // Եթե հասել ենք վերջինին, վերադառնում ենք առաջինին
-        if (prevIndex >= images.length - 1) {
-          return 0;
+        if (prevIndex >= images.length - 2) {
+          return 1;
         }
         // Հակառակ դեպքում գնում ենք հաջորդին
         return prevIndex + 1;
@@ -102,9 +103,9 @@ const ImageSlider: React.FC<ImageSliderProps> = ({ images, buttons }) => {
         const slideWidth = getSlideWidth();
         const gap = getGap();
         const wrapperWidth = wrapperRef.current.offsetWidth;
-        
+
         if (wrapperWidth === 0) return;
-        
+
         const slideWithGap = slideWidth + gap;
         const offset = activeIndex * slideWithGap;
         const centerOffset = (wrapperWidth / 2) - (slideWidth / 2);
@@ -133,7 +134,7 @@ const ImageSlider: React.FC<ImageSliderProps> = ({ images, buttons }) => {
   return (
     <div className={styles.sliderContainer}>
       <div ref={wrapperRef} className={styles.sliderWrapper}>
-        <div 
+        <div
           ref={trackRef}
           className={styles.sliderTrack}
           style={{
@@ -143,16 +144,16 @@ const ImageSlider: React.FC<ImageSliderProps> = ({ images, buttons }) => {
         >
           {images.map((image, index) => {
             const button = buttons && buttons[index] ? buttons[index] : null;
-            
+
             return (
               <div
                 key={index}
                 className={`${styles.slide} ${index === activeIndex ? styles.active : ''}`}
                 onClick={() => handleSlideClick(index)}
               >
-                <img src={image} alt={`Slide ${index + 1}`} />
+                <Image src={image} alt={`Slide ${index + 1}`} width={1920} height={1080} />
                 <div className={styles.slideButton}>
-                  <PinkButton 
+                  <PinkButton
                     width="100%"
                     height={40}
                     onClick={(e) => {
@@ -166,9 +167,11 @@ const ImageSlider: React.FC<ImageSliderProps> = ({ images, buttons }) => {
                     {button?.text || t('getTicket')}
                   </PinkButton>
                 </div>
+                <div className={styles.imageSliderShadow}></div>
               </div>
             );
           })}
+
         </div>
       </div>
     </div>

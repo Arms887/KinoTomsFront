@@ -1,4 +1,15 @@
 {
+  "CinemaLittleCards": {
+    "cinemaMegaMall": "Սինեմա Սթար Մեգամոլ",
+    "hoktember": "Հոկտեմբեր կինոթատրոն",
+    "olympic": "Olympic կինոթատրոն",
+    "hrazdan": "Հրազդան կինոթատրոն",
+    "cinepolis": "Cinepolis",
+    "cinemazone": "Սինեմա Զոն կինոթատրոն",
+    "lori": "Լոռի կինոթատրոն",
+    "ejmiacin": "Էջմիածնի Կոմիտասի անվան մշակույթի պալատ",
+    "artashat": "Արտաշատի դրամատիկական թատրոն"
+  },
   "HomePageSecond": {
     "homePageSecondTitle": "Կինոթատրոններ",
     "homePageSearchTitle": "Միացե՛ք Մեզ",
@@ -78,6 +89,7 @@
     "confirmPasswordPlaceholder": "Հաստատեք ձեր գաղտնաբառը",
     "loading": "Բեռնվում է...",
     "registerSuccess": "Գրանցումը հաջողվեց!",
+    "checkYourEmail": "Խնդրում ենք ստուգեք ձեր էլ. փոստը",
     "registerError": "Գրանցումը ձախողվեց: Խնդրում ենք կրկին փորձել:",
     "loginError": "Մուտքը ձախողվեց: Խնդրում ենք ստուգել ձեր տվյալները:",
     "forgotPassword": "Մոռացել եք գաղտնաբառը?",
@@ -111,5 +123,35 @@
     "cinemas": "Կինոթատրոններ",
     "city": "Քաղաք",
     "search": "Փնտրել"
+  },
+  "TicketPurchase": {
+    "selectSeats": "Ընտրեք տեղերը",
+    "seatSelectionPlaceholder": "Տեղ ընտրելու հնարավորությունը շուտով կավելանա",
+    "seatMapComingSoon": "Տեղերի քարտեզը շուտով կավելանա",
+    "ticketCount": "Տոմսերի քանակ",
+    "ticket": "տոմս",
+    "continue": "Շարունակել",
+    "purchaseData": "Գնման համար տվյալներ",
+    "nameSurname": "Անուն, ազգանուն",
+    "name": "Անուն",
+    "surname": "Ազգանուն",
+    "emailAddress": "Էլ. հասցե",
+    "phoneNumber": "Հեռախոսահամար",
+    "fillAllFields": "Խնդրում ենք լրացրեք բոլոր դաշտերը",
+    "invalidEmail": "Խնդրում ենք մուտքագրեք վավեր էլ. հասցե",
+    "movieTitle": "Թանկարժեք տղաները",
+    "cinemaName": "(Լոռի կինոթատրոն)",
+    "showTime": "Չորեքշաբթի, 03 դեկտեմբերի, 18:50",
+    "paymentMethod": "Վճարման եղանակ",
+    "bankCard": "Բանկային քարտ",
+    "havePromoCode": "Ունե՞ք պրոմո կոդ",
+    "enterPromoCode": "Մուտքագրեք պրոմո կոդ",
+    "ticketPrice": "Տոմսերի արժեքը",
+    "serviceFee": "Ծառայության վճար",
+    "total": "Ընդհանուր",
+    "pay": "ՎՃԱՐԵԼ",
+    "termsAndConditions": "Ընդհանուր դրույթներ և պայմաններ",
+    "paymentProcessing": "Վճարումը մշակվում է...",
+    "back": "Հետ"
   }
 }

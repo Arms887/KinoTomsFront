@@ -1,4 +1,15 @@
 {
+  "CinemaLittleCards": {
+    "cinemaMegaMall": "Cinemas Star Mega Mall",
+    "hoktember": "Hoktember Cinema",
+    "olympic": "Olympic cinema",
+    "hrazdan": "Hrazdan Cinema",
+    "cinepolis": "Cinepolis",
+    "cinemazone": "Cinema Zone",
+    "lori": "Lori Cinema",
+    "ejmiacin": "Komitas palace of culture",
+    "artashat": "Artashat Drama Theater"
+  },
   "HomePageSecond": {
     "homePageSecondTitle": "Cinemas",
     "homePageSearchTitle": "Join Us",
@@ -77,6 +88,7 @@
     "confirmPasswordPlaceholder": "Confirm your password",
     "loading": "Loading...",
     "registerSuccess": "Registration successful!",
+    "checkYourEmail": "Please check your email",
     "registerError": "Registration failed. Please try again.",
     "loginError": "Login failed. Please check your credentials.",
     "forgotPassword": "Forgot password?",
@@ -110,5 +122,35 @@
     "cinemas": "Cinemas",
     "city": "City",
     "search": "Search"
+  },
+  "TicketPurchase": {
+    "selectSeats": "Select Seats",
+    "seatSelectionPlaceholder": "Seat selection feature will be available soon",
+    "seatMapComingSoon": "Seat map will be available soon",
+    "ticketCount": "Number of Tickets",
+    "ticket": "ticket",
+    "continue": "Continue",
+    "purchaseData": "Purchase Information",
+    "nameSurname": "Name, Surname",
+    "name": "Name",
+    "surname": "Surname",
+    "emailAddress": "Email Address",
+    "phoneNumber": "Phone Number",
+    "fillAllFields": "Please fill in all fields",
+    "invalidEmail": "Please enter a valid email address",
+    "movieTitle": "Precious Boys",
+    "cinemaName": "(Lori Cinema)",
+    "showTime": "Wednesday, December 03, 18:50",
+    "paymentMethod": "Payment Method",
+    "bankCard": "Bank Card",
+    "havePromoCode": "Have a promo code?",
+    "enterPromoCode": "Enter promo code",
+    "ticketPrice": "Ticket Price",
+    "serviceFee": "Service Fee",
+    "total": "Total",
+    "pay": "PAY",
+    "termsAndConditions": "General terms and conditions",
+    "paymentProcessing": "Processing payment...",
+    "back": "Back"
   }
 }

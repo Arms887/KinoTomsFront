@@ -1,7 +1,7 @@
 "use client";
 
 import { useState, useEffect } from "react";
-import { Link } from "@/i18n/navigation";
+import { Link, usePathname } from "@/i18n/navigation";
 import { Globe, LogIn, User, LogOut } from "lucide-react";
 import { useTranslations } from "next-intl";
 import LanguageSwitcher from "../LanguageSwitcher/LanguageSwitcher";
@@ -26,6 +26,7 @@ import { HamburgerIcon } from "../../../public/svg/hamburger";
 
 export default function Header() {
   const t = useTranslations("Navigation");
+  const pathname = usePathname();
   const { user, clearUser } = useUser();
   const [isAuthModalOpen, setIsAuthModalOpen] = useState(false);
   const [authModalTab, setAuthModalTab] = useState<"login" | "register" | "forgot">("login");
@@ -72,9 +73,10 @@ export default function Header() {
 
   return (
     <>
+
       <header className={styles.header}>
         <div className={"container"}>
-          <div className={styles.content}>
+          <div className={`${styles.content} ${pathname !== "/" ? styles.contentProduct : ""}`}>
             <Link href="/" className={styles.logo} aria-label="Home">
               <Image src="/assets/img/mainLogo.png" alt="KinoToms" width={98} height={58} />
             </Link>

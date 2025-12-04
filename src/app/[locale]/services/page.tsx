@@ -1,6 +1,6 @@
 import { use } from "react";
 import { setRequestLocale } from "next-intl/server";
-import ServicesPage from "@/pages/ServicesPage/ServicesPage";
+import ServicesPage from "@/pagesComponents/ServicesPage/ServicesPage";
 
 export default function ServicesPageWrapper({
   params,

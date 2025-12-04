@@ -1,4 +1,15 @@
 {
+  "CinemaLittleCards": {
+    "cinemaMegaMall": "Синема Стар Мегамолл",
+    "hoktember": "Кинотеатр «Октябрь»",
+    "olympic": "Olympic cinema",
+    "hrazdan": "Кинотеатр Раздан",
+    "cinepolis": "Cinepolis",
+    "cinemazone": "Синема Зон Кинотеатр",
+    "lori": "Лори Кинотеатр",
+    "ejmiacin": "Дом культуры Комитаса",
+    "artashat": "Арташатский драматический театр"
+  },
   "HomePageSecond": {
     "homePageSecondTitle": "Кинотеатры",
     "homePageSearchTitle": "Присоединяйтесь к нам",
@@ -77,6 +88,7 @@
     "confirmPasswordPlaceholder": "Подтвердите ваш пароль",
     "loading": "Загрузка...",
     "registerSuccess": "Регистрация успешна!",
+    "checkYourEmail": "Пожалуйста, проверьте вашу электронную почту",
     "registerError": "Регистрация не удалась. Пожалуйста, попробуйте снова.",
     "loginError": "Вход не удался. Пожалуйста, проверьте ваши данные.",
     "forgotPassword": "Забыли пароль?",
@@ -110,5 +122,35 @@
     "cinemas": "Кинотеатры",
     "city": "Город",
     "search": "Поиск"
+  },
+  "TicketPurchase": {
+    "selectSeats": "Выберите места",
+    "seatSelectionPlaceholder": "Функция выбора мест будет доступна в ближайшее время",
+    "seatMapComingSoon": "Карта мест будет доступна в ближайшее время",
+    "ticketCount": "Количество билетов",
+    "ticket": "билет",
+    "continue": "Продолжить",
+    "purchaseData": "Данные для покупки",
+    "nameSurname": "Имя, фамилия",
+    "name": "Имя",
+    "surname": "Фамилия",
+    "emailAddress": "Эл. адрес",
+    "phoneNumber": "Номер телефона",
+    "fillAllFields": "Пожалуйста, заполните все поля",
+    "invalidEmail": "Пожалуйста, введите действительный адрес электронной почты",
+    "movieTitle": "Дорогие мальчики",
+    "cinemaName": "(Кинотеатр Лори)",
+    "showTime": "Среда, 03 декабря, 18:50",
+    "paymentMethod": "Способ оплаты",
+    "bankCard": "Банковская карта",
+    "havePromoCode": "Есть промо-код?",
+    "enterPromoCode": "Введите промо-код",
+    "ticketPrice": "Стоимость билетов",
+    "serviceFee": "Плата за обслуживание",
+    "total": "Итого",
+    "pay": "ОПЛАТИТЬ",
+    "termsAndConditions": "Общие положения и условия",
+    "paymentProcessing": "Обработка платежа...",
+    "back": "Назад"
   }
 }

@@ -21,6 +21,7 @@
 .sliderTrack {
     display: flex;
     align-items: center;
+    position: relative;
     height: 100%;
     gap: clamp(20px, 2.5vw, 60px);
     will-change: transform;
@@ -41,10 +42,11 @@
     isolation: isolate;
     contain: layout style paint;
     position: relative;
+    z-index: 66;
 
     img {
         width: 100%;
-        height: 100%;
+        height: 100% !important;
         object-fit: cover;
         display: block;
         user-select: none;
@@ -53,8 +55,8 @@
     .slideButton {
         position: absolute;
         bottom: 30px;
-        left: 13%;
-        z-index: 999;
+        left: 5%;
+        z-index: 19;
         pointer-events: auto;
         width: 165px;
         display: flex;
@@ -73,7 +75,7 @@
         }
 
         @media (max-width: 480px) {
-            bottom: 15px;
+            bottom: 10px;
             width: 100px;
             left: 10%;
         }
@@ -99,6 +101,20 @@
     }
 
     @media (max-width: 480px) {
-        height: 28px !important;
+        height: 20px !important;
     }
+}
+
+.imageSliderShadow {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 200%;
+    height: 30%;
+    background: linear-gradient(to top, rgba(0, 0, 0, 0.8), transparent);
+    -webkit-backdrop-filter: blur(10px);
+    pointer-events: none;
+    z-index: 16;
+    transform: scale(1.2);
+    backdrop-filter: blur(3px);
 }

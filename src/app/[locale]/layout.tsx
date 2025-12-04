@@ -6,7 +6,6 @@ import { Metadata } from "next";
 import { ThemeProvider } from "@/components/theme-provider";
 import { jsonLdScriptProps } from "react-schemaorg";
 import { WebSite } from "schema-dts";
-import { Geist, Geist_Mono } from "next/font/google";
 import { Analytics } from "@vercel/analytics/react";
 import { SpeedInsights } from "@vercel/speed-insights/next";
 import Header from "@/components/Header/Header";
@@ -14,17 +13,6 @@ import { UserProvider } from "@/contexts/UserContext";
 import "../globals.css";
 import "antd/dist/reset.css";
 
-const geistSans = Geist({
-  variable: "--font-geist-sans",
-  subsets: ["latin"],
-});
-
-const geistMono = Geist_Mono({
-  variable: "--font-geist-mono",
-  subsets: ["latin"],
-});
-
-// Extract domain to a constant to avoid repetition
 const DOMAIN = "https://next-app-i18n-starter.vercel.app";
 
 export default async function RootLayout({
@@ -43,7 +31,6 @@ export default async function RootLayout({
   // Enable static rendering
   setRequestLocale(locale);
 
-  const isRTL = false; // No RTL languages in current setup
   const t = await getTranslations({ locale, namespace: "Metadata" });
   return (
     <html lang={locale} dir="ltr" suppressHydrationWarning>
@@ -62,7 +49,7 @@ export default async function RootLayout({
         />
       </head>
       <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased`}
+        
         suppressHydrationWarning
       >
         <ThemeProvider

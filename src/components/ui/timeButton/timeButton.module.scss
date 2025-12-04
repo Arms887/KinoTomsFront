@@ -1,11 +1,45 @@
+// .timeButton {
+//     width: 100px;
+//     height: 50px;
+//     border-radius: 10px;
+//     padding: 1px;
+//     background: linear-gradient(to right,
+//             #575757  30%,
+//             #000000 100%);
+// }
+
+// .timeButton>div {
+//     background-color: rgba(40, 37, 52, 0.86);
+//     width: 100%;
+//     height: 100%;
+//     border-radius: 10px;
+//     display: flex;
+//     align-items: center;
+//     justify-content: center;
+//     p{
+//         font-size: 16px;
+//         color: #ffffff;
+//         font-weight: 600;
+//         margin: 0 ;
+//     }
+// }
+
 .timeButton {
     width: 100px;
     height: 50px;
     border-radius: 10px;
     padding: 1px;
-    background: linear-gradient(to right,
-            #ffffff 30%,
-            #000000 100%);
+    background: linear-gradient(90deg,
+            #575757 0%,
+            #000000 50%,
+            #575757 100%);
+    background-size: 200% 100%;
+    background-position: 0% 0%;
+    transition: background-position 0.6s ease;
+
+    &:hover {
+        background-position: 100% 0%;
+    }
 }
 
 .timeButton>div {
@@ -16,10 +50,11 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    p{
+    
+    p {
         font-size: 16px;
         color: #ffffff;
         font-weight: 600;
-        margin: 0 ;
+        margin: 0;
     }
 }

@@ -1,6 +1,6 @@
 import { use } from "react";
 import { setRequestLocale } from "next-intl/server";
-import ProductDetailPage from "@/pages/ProductDetailPage/ProductDetailPage";
+import ProductDetailPage from "@/pagesComponents/ProductDetailPage/ProductDetailPage";
 
 export default function ProductDetailPageWrapper({
   params,

@@ -1,0 +1,21 @@
+.productDetailContainer {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    gap: 103px;
+}
+@media screen and (max-width: 1024px) {
+    .productDetailContainer{
+        gap: 70px;
+    }
+}
+@media screen and (max-width: 768px) {
+    .productDetailContainer{
+        gap: 50px;
+    } 
+}
+@media screen and (max-width: 576px) {
+    .productDetailContainer{
+        gap: 30px;
+    }
+}

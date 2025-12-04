@@ -7,10 +7,8 @@ interface ButtonProps extends React.ComponentProps<"button"> {
 }
 
 function TimeButton({
-    className,
     month,
     day,
-    style,
 }: ButtonProps) {
 
     return (

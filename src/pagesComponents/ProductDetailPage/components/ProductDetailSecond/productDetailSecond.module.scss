@@ -1,0 +1,101 @@
+.productDetailTitle {
+    color: #FFFFFF;
+    font-family: var(--font-montserrat-arm);
+    font-size: 25px;
+    font-weight: 600;
+}
+
+.productDetailDescription {
+    max-width: 1224px;
+}
+
+.productDetailDescriptionBlock {
+    margin-bottom: 41px;
+}
+
+.ProductDetailTicketsBlock {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 84px;
+}
+
+.productDetailAddress {
+    width: 100%;
+    margin-bottom: 121px;
+
+    iframe {
+        width: 100%;
+        max-height: 375px;
+        border-radius: 25px;
+    }
+}
+
+.productTimesBlock {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    margin-bottom: 70px;
+}
+
+.ProductDetailNormalCards {
+    width: 100%;
+    flex: 1;
+    min-width: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    :global(.ant-col) {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+}
+
+@media screen and (max-width: 1024px) {
+    .productDetailDescriptionBlock {
+        margin-bottom: 35px;
+    }
+    .ProductDetailTicketsBlock {
+        margin-bottom: 65px;
+    }
+    .productDetailAddress {
+        margin-bottom: 100px;
+    }
+    .productTimesBlock {
+
+        gap: 15px;
+        margin-bottom: 55px;
+    }
+}
+@media screen and (max-width: 768px) {
+    .productDetailDescriptionBlock {
+        margin-bottom: 30px;
+    }
+    .ProductDetailTicketsBlock {
+        margin-bottom: 55px;
+    }
+    .productDetailAddress {
+        margin-bottom: 80px;
+    }
+    .productTimesBlock {
+
+        margin-bottom: 47px;
+    }
+}
+@media screen and (max-width: 576px) {
+    .productDetailDescriptionBlock {
+        margin-bottom: 25px;
+    }
+    .ProductDetailTicketsBlock {
+        margin-bottom: 45px;
+    }
+    .productDetailAddress {
+        margin-bottom: 65px;
+    }
+    .productTimesBlock {
+        margin-bottom: 35px;
+    }
+}
