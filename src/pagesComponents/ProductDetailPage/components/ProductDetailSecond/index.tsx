@@ -1,6 +1,5 @@
 import { useTranslations } from "next-intl";
 import styles from "./productDetailSecond.module.scss"
-import { Col, Row } from "antd";
 import { testArray } from "@/halpers/constants/indext";
 import { ProductCard } from "@/components/ProductCard";
 import { TimeButton } from "@/components/ui/timeButton";
@@ -21,20 +20,13 @@ export default function ProductDetailSecond() {
                 </div>
 
                 <div className={styles.ProductDetailTicketsBlock}>
-                    <Row className={styles.ProductDetailNormalCards} gutter={[10, 10]}>
+                    <div className={styles.ProductDetailTicketsGrid}>
                         {testArray.slice(0, 3).map((item, i) => (
-                            <Col
-                                key={i}
-                                xs={24}
-                                sm={24}
-                                md={12}
-                                lg={12}
-                                xl={8}
-                            >
+                            <div key={i} className={styles.ticketCardWrapper}>
                                 <TicketCard id={item.id} />
-                            </Col>
+                            </div>
                         ))}
-                    </Row>
+                    </div>
                 </div>
             </div>
             <div className={styles.productDetailDescriptionBlock}>
@@ -51,20 +43,13 @@ export default function ProductDetailSecond() {
                 </iframe>
             </div>
             <div>
-                <Row className={styles.ProductDetailNormalCards} gutter={[10, 10]}>
+                <div className={styles.ProductDetailNormalCards}>
                     {testArray.map((item, index) => (
-                        <Col
-                            key={index}
-                            xs={24}
-                            sm={12}
-                            md={12}
-                            lg={6}
-                            xl={6}
-                        >
+                        <div key={index} className={styles.productCardWrapper}>
                             <ProductCard id={item.id} img={item.img} time={item.time} title={item.title} />
-                        </Col>
+                        </div>
                     ))}
-                </Row>
+                </div>
             </div>
         </div>
     );

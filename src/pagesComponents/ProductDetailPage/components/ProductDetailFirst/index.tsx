@@ -2,6 +2,7 @@ import { useTranslations } from "next-intl";
 import styles from "./productDetailFirst.module.scss"
 import Image from "next/image";
 import img from "./../../../../../public/assets/img/Group349.png"
+// import vid from "./../../../../../public/assets/video/"
 import { BasicButton } from "@/components/ui/basicButton";
 import { ClockIcon } from "../../../../../public/svg/clockIcon";
 import { ReturnIcon } from "../../../../../public/svg/returnIcon";
@@ -10,8 +11,11 @@ export default function ProductDetailFirst() {
     const t = useTranslations("ProductDetail");
 
     return (
-        <div style={{backgroundImage : `url(${img ? img.src : ""})`}} className={styles.productDetailFirstMainBlock}>
+        <div style={{ backgroundImage: `url(${img ? img.src : ""})` }} className={styles.productDetailFirstMainBlock}>
             {/* <Image className={styles.productDetailFirstBgImage} src={img} alt="" /> */}
+            <video className={styles.productDetailFirstBgVideo} autoPlay loop muted>
+                <source src={"/assets/video/pchelovod.mp4"} type="video/mp4" />
+            </video>
             <div className="container">
                 <div className={styles.productDetailFirstContent}>
                     <p className={styles.productDetailFirstTitle}>Վանաձոր, Սինեմա Զոն կինոթատրոն </p>
@@ -28,6 +32,6 @@ export default function ProductDetailFirst() {
                     </div>
                 </div>
             </div>
-        </div>
+        </div >
     );
 }

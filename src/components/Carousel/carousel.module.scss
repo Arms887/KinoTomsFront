@@ -10,7 +10,7 @@
 
 .sliderWrapper {
     width: 100%;
-    height: calc(70vw * 9 / 16);
+    height: clamp(157.5px, calc(70vw * 9 / 16), 675px);
     max-height: 600px;
     overflow: visible;
     display: flex;
@@ -23,13 +23,13 @@
     align-items: center;
     position: relative;
     height: 100%;
-    gap: clamp(20px, 2.5vw, 60px);
+    gap: clamp(20px, 2.5vw, 44px);
     will-change: transform;
 }
 
 .slide {
     flex-shrink: 0;
-    width: 70vw;
+    width: clamp(280px, 70vw, 1200px);
     max-height: 100%;
     aspect-ratio: 16 / 9;
     border-radius: 16px;

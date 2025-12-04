@@ -24,15 +24,18 @@ const ImageSlider: React.FC<ImageSliderProps> = ({ images, buttons }) => {
   // Slide width-ը և gap-ը responsive-ի համար
   const getSlideWidth = () => {
     if (typeof window === 'undefined') return 0;
-    return window.innerWidth * 0.7;
+    const viewportWidth = window.innerWidth;
+    const calculatedWidth = viewportWidth * 0.7;
+    // clamp(280px, 70vw, 1200px) - min 280px, max 1200px
+    return Math.max(280, Math.min(1200, calculatedWidth));
   };
 
   const getGap = () => {
     if (typeof window === 'undefined') return 44;
-    // Responsive gap: viewport width-ի 2.5%, բայց min 20px, max 60px
+    // Responsive gap: clamp(20px, 2.5vw, 44px)
     const viewportWidth = window.innerWidth;
     const calculatedGap = viewportWidth * 0.025;
-    return Math.max(20, Math.min(60, calculatedGap));
+    return Math.max(20, Math.min(44, calculatedGap));
   };
 
   const calculateTransform = () => {

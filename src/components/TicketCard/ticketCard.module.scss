@@ -17,7 +17,6 @@
 // }
 .ticketCardBorder {
     width: 100%;
-    max-width: 550px;
     // min-height: 300px;
     border-radius: 20px;
     padding: 2px;
@@ -34,17 +33,43 @@
     }
 }
 
+// .ticketCardMainBlock {
+//     width: 100%;
+//     max-width: 550px;
+//     height: 100%;
+//     border-radius: 20px;
+//     background-color: #282534;
+
+//     .ticketCardContent {
+//         padding: 20px 30px;
+//     }
+
+// }
 .ticketCardMainBlock {
     width: 100%;
-    max-width: 550px;
     height: 100%;
     border-radius: 20px;
     background-color: #282534;
+    position: relative;
+
+    &::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        border-radius: 20px;
+        opacity: 0.05; // Noise-ի ինտենսիվությունը
+        background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E");
+        pointer-events: none;
+    }
 
     .ticketCardContent {
         padding: 20px 30px;
+        position: relative;
+        z-index: 1;
     }
-
 }
 
 .ticketCardTop {

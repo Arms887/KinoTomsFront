@@ -1,35 +1,3 @@
-// .homePageFourMainBlock{
-//     width: 100%;
-//     height: 1355px;
-//     display: flex;
-//     align-items: center;
-//     justify-content: center;
-//     .homePageFourContent{
-//         display: flex;
-//         align-items: center;
-//         justify-content: center;
-//         flex-direction: column;
-//         p{
-//             margin-bottom: 49px !important;
-//             font-size: 80px;
-//         }
-//         button{
-//             display: flex;
-//             align-items: center;
-//             justify-content: center;
-//             width: 40%;
-//             max-width: 200px;
-//             height: 50px;
-//             background-color: #ffffff;
-//             color: #000;
-//             font-size: 20px;
-//             font-weight: 500;
-//             border-radius: 25px;
-//         }
-//     }
-// }
-
-
 .homePageFourMainBlock {
     width: 100%;
     height: 1355px;
@@ -38,6 +6,17 @@
     justify-content: center;
     position: relative;
     overflow: hidden;
+
+    &::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        z-index: 6;
+        background: radial-gradient(circle, rgba(0, 0, 0, .6) 0%, rgba(0, 0, 0, 0.7) 30%, rgba(0, 0, 0, .1) 80%);
+    }
 
     .imageContainer {
         position: absolute;
@@ -186,33 +165,129 @@
     @media (max-width: 1700px) {
         height: 1100px;
 
-        .image1 { width: 300px; height: 477px; }
-        .image2 { width: 276px; height: 423px; }
-        .image3 { width: 208px; height: 340px; left: 28%; bottom: 10%; }
-        .image4 { width: 188px; height: 241px; right: 5%; top: 48%; }
-        .image5 { width: 259px; height: 202px; left: 0; }
-        .image6 { width: 259px; height: 136px; right: 0; }
-        .image7 { width: 188px; height: 241px; left: 33%; top: 12%; }
-        .image8 { width: 195px; height: 341px; right: 29%; top: 25%; }
-        .image9 { width: 241px; height: 301px; left: 62%; bottom: 8%; }
+        .image1 {
+            width: 300px;
+            height: 477px;
+        }
+
+        .image2 {
+            width: 276px;
+            height: 423px;
+        }
+
+        .image3 {
+            width: 208px;
+            height: 340px;
+            left: 28%;
+            bottom: 10%;
+        }
+
+        .image4 {
+            width: 188px;
+            height: 241px;
+            right: 5%;
+            top: 48%;
+        }
+
+        .image5 {
+            width: 259px;
+            height: 202px;
+            left: 0;
+        }
+
+        .image6 {
+            width: 259px;
+            height: 136px;
+            right: 0;
+        }
+
+        .image7 {
+            width: 188px;
+            height: 241px;
+            left: 33%;
+            top: 12%;
+        }
+
+        .image8 {
+            width: 195px;
+            height: 341px;
+            right: 29%;
+            top: 25%;
+        }
+
+        .image9 {
+            width: 241px;
+            height: 301px;
+            left: 62%;
+            bottom: 8%;
+        }
     }
 
     // Tablet portrait
     @media (max-width: 1200px) {
         height: 900px;
 
-        .image1 { width: 240px; height: 382px; }
-        .image2 { width: 221px; height: 338px; }
-        .image3 { width: 166px; height: 272px; left: 27%; bottom: 9%; }
-        .image4 { width: 150px; height: 193px; right: 4%; top: 46%; }
-        .image5 { width: 207px; height: 162px; left: 0; }
-        .image6 { width: 207px; height: 109px; right: 0; }
-        .image7 { width: 150px; height: 193px; left: 34%; top: 14%; }
-        .image8 { width: 156px; height: 272px; right: 29%; top: 27%; }
-        .image9 { width: 193px; height: 241px; left: 60%; bottom: 10%; }
+        .image1 {
+            width: 240px;
+            height: 382px;
+        }
+
+        .image2 {
+            width: 221px;
+            height: 338px;
+        }
+
+        .image3 {
+            width: 166px;
+            height: 272px;
+            left: 27%;
+            bottom: 9%;
+        }
+
+        .image4 {
+            width: 150px;
+            height: 193px;
+            right: 4%;
+            top: 46%;
+        }
+
+        .image5 {
+            width: 207px;
+            height: 162px;
+            left: 0;
+        }
+
+        .image6 {
+            width: 207px;
+            height: 109px;
+            right: 0;
+        }
+
+        .image7 {
+            width: 150px;
+            height: 193px;
+            left: 34%;
+            top: 14%;
+        }
+
+        .image8 {
+            width: 156px;
+            height: 272px;
+            right: 29%;
+            top: 27%;
+        }
+
+        .image9 {
+            width: 193px;
+            height: 241px;
+            left: 60%;
+            bottom: 10%;
+        }
 
         .homePageFourContent {
-            p { font-size: 64px; }
+            p {
+                font-size: 64px;
+            }
         }
     }
 
@@ -220,19 +295,77 @@
     @media (max-width: 950px) {
         height: 700px;
 
-        .image1 { width: 180px; height: 286px; top: 2%; }
-        .image2 { width: 165px; height: 253px; top: 2%; }
-        .image3 { width: 125px; height: 204px; left: 29%; bottom: 8%; }
-        .image4 { width: 113px; height: 145px; right: 3%; top: 50%; }
-        .image5 { width: 155px; height: 121px; left: 0; bottom: 2%; }
-        .image6 { width: 155px; height: 82px; right: 0; bottom: 0; }
-        .image7 { width: 113px; height: 145px; left: 33%; top: 16%; }
-        .image8 { width: 117px; height: 204px; right: 29%; top: 28%; }
-        .image9 { width: 145px; height: 181px; left: 65%; bottom: 12%; }
+        .image1 {
+            width: 180px;
+            height: 286px;
+            top: 2%;
+        }
+
+        .image2 {
+            width: 165px;
+            height: 253px;
+            top: 2%;
+        }
+
+        .image3 {
+            width: 125px;
+            height: 204px;
+            left: 29%;
+            bottom: 8%;
+        }
+
+        .image4 {
+            width: 113px;
+            height: 145px;
+            right: 3%;
+            top: 50%;
+        }
+
+        .image5 {
+            width: 155px;
+            height: 121px;
+            left: 0;
+            bottom: 2%;
+        }
+
+        .image6 {
+            width: 155px;
+            height: 82px;
+            right: 0;
+            bottom: 0;
+        }
+
+        .image7 {
+            width: 113px;
+            height: 145px;
+            left: 33%;
+            top: 16%;
+        }
+
+        .image8 {
+            width: 117px;
+            height: 204px;
+            right: 29%;
+            top: 28%;
+        }
+
+        .image9 {
+            width: 145px;
+            height: 181px;
+            left: 65%;
+            bottom: 12%;
+        }
 
         .homePageFourContent {
-            p { font-size: 48px; margin-bottom: 30px !important; }
-            button { font-size: 16px; height: 45px; }
+            p {
+                font-size: 48px;
+                margin-bottom: 30px !important;
+            }
+
+            button {
+                font-size: 16px;
+                height: 45px;
+            }
         }
     }
 
@@ -240,19 +373,78 @@
     @media (max-width: 700px) {
         height: 600px;
 
-        .image1 { width: 140px; height: 223px; top: 3%; }
-        .image2 { width: 129px; height: 198px; top: 3%; }
-        .image3 { width: 97px; height: 159px; left: 31%; bottom: 8%; }
-        .image4 { width: 88px; height: 113px; right: 2%; top: 42%; }
-        .image5 { width: 121px; height: 94px; left: 0; bottom: 2%; }
-        .image6 { width: 121px; height: 64px; right: 0; bottom: 0; }
-        .image7 { width: 88px; height: 113px; left: 34%; top: 18%; }
-        .image8 { width: 91px; height: 159px; right: 27%; top: 30%; }
-        .image9 { width: 113px; height: 141px; left: 68%; bottom: 14%; }
+        .image1 {
+            width: 140px;
+            height: 223px;
+            top: 3%;
+        }
+
+        .image2 {
+            width: 129px;
+            height: 198px;
+            top: 3%;
+        }
+
+        .image3 {
+            width: 97px;
+            height: 159px;
+            left: 31%;
+            bottom: 8%;
+        }
+
+        .image4 {
+            width: 88px;
+            height: 113px;
+            right: 2%;
+            top: 42%;
+        }
+
+        .image5 {
+            width: 121px;
+            height: 94px;
+            left: 0;
+            bottom: 2%;
+        }
+
+        .image6 {
+            width: 121px;
+            height: 64px;
+            right: 0;
+            bottom: 0;
+        }
+
+        .image7 {
+            width: 88px;
+            height: 113px;
+            left: 34%;
+            top: 18%;
+        }
+
+        .image8 {
+            width: 91px;
+            height: 159px;
+            right: 27%;
+            top: 30%;
+        }
+
+        .image9 {
+            width: 113px;
+            height: 141px;
+            left: 68%;
+            bottom: 14%;
+        }
 
         .homePageFourContent {
-            p { font-size: 36px; margin-bottom: 25px !important; }
-            button { font-size: 15px; height: 42px; max-width: 170px; }
+            p {
+                font-size: 36px;
+                margin-bottom: 25px !important;
+            }
+
+            button {
+                font-size: 15px;
+                height: 42px;
+                max-width: 170px;
+            }
         }
     }
 
@@ -260,19 +452,78 @@
     @media (max-width: 540px) {
         height: 550px;
 
-        .image1 { width: 110px; height: 175px; top: 4%; }
-        .image2 { width: 101px; height: 145px; top: 4%; }
-        .image3 { width: 77px; height: 126px; left: 31%; bottom: 8%; }
-        .image4 { width: 69px; height: 89px; right: 1%; top: 40%; }
-        .image5 { width: 95px; height: 74px; left: 0; bottom: 2%; }
-        .image6 { width: 95px; height: 50px; right: 0; bottom: 0; }
-        .image7 { width: 69px; height: 89px; left: 32%; top: 20%; }
-        .image8 { width: 72px; height: 126px; right: 25%; top: 32%; }
-        .image9 { width: 89px; height: 111px; left: 69%; bottom: 16%; }
+        .image1 {
+            width: 110px;
+            height: 175px;
+            top: 4%;
+        }
+
+        .image2 {
+            width: 101px;
+            height: 145px;
+            top: 4%;
+        }
+
+        .image3 {
+            width: 77px;
+            height: 126px;
+            left: 31%;
+            bottom: 8%;
+        }
+
+        .image4 {
+            width: 69px;
+            height: 89px;
+            right: 1%;
+            top: 40%;
+        }
+
+        .image5 {
+            width: 95px;
+            height: 74px;
+            left: 0;
+            bottom: 2%;
+        }
+
+        .image6 {
+            width: 95px;
+            height: 50px;
+            right: 0;
+            bottom: 0;
+        }
+
+        .image7 {
+            width: 69px;
+            height: 89px;
+            left: 32%;
+            top: 20%;
+        }
+
+        .image8 {
+            width: 72px;
+            height: 126px;
+            right: 25%;
+            top: 32%;
+        }
+
+        .image9 {
+            width: 89px;
+            height: 111px;
+            left: 69%;
+            bottom: 16%;
+        }
 
         .homePageFourContent {
-            p { font-size: 28px; margin-bottom: 20px !important; }
-            button { font-size: 14px; height: 38px; max-width: 150px; }
+            p {
+                font-size: 28px;
+                margin-bottom: 20px !important;
+            }
+
+            button {
+                font-size: 14px;
+                height: 38px;
+                max-width: 150px;
+            }
         }
     }
 
@@ -280,19 +531,68 @@
     @media (max-width: 390px) {
         height: 400px;
 
-        .image1 { width: 90px; height: 143px; }
-        .image2 { width: 83px; height: 90px; }
-        .image3 { width: 63px; height: 103px; left: 10%; bottom: 22% }
-        .image4 { width: 57px; height: 73px; top:63%; }
-        .image5 { width: 78px; height: 61px; }
-        .image6 { width: 78px; height: 41px; }
-        .image7 { width: 57px; height: 73px; left: 36%; }
-        .image8 { width: 59px; height: 103px; right: 12%; }
-        .image9 { width: 73px; height: 91px; left: 62%; }
+        .image1 {
+            width: 90px;
+            height: 143px;
+        }
+
+        .image2 {
+            width: 83px;
+            height: 90px;
+        }
+
+        .image3 {
+            width: 63px;
+            height: 103px;
+            left: 10%;
+            bottom: 22%
+        }
+
+        .image4 {
+            width: 57px;
+            height: 73px;
+            top: 63%;
+        }
+
+        .image5 {
+            width: 78px;
+            height: 61px;
+        }
+
+        .image6 {
+            width: 78px;
+            height: 41px;
+        }
+
+        .image7 {
+            width: 57px;
+            height: 73px;
+            left: 36%;
+        }
+
+        .image8 {
+            width: 59px;
+            height: 103px;
+            right: 12%;
+        }
+
+        .image9 {
+            width: 73px;
+            height: 91px;
+            left: 62%;
+        }
 
         .homePageFourContent {
-            p { font-size: 24px; margin-bottom: 18px !important; }
-            button { font-size: 13px; height: 36px; max-width: 130px; }
+            p {
+                font-size: 24px;
+                margin-bottom: 18px !important;
+            }
+
+            button {
+                font-size: 13px;
+                height: 36px;
+                max-width: 130px;
+            }
         }
     }
 }

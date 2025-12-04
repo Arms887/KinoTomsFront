@@ -27,6 +27,13 @@
     margin-top: 82px;
     margin-bottom: 172px;
 
+    .homePageSecondNormalCardsWall {
+        display: grid;
+        align-items: center;
+        grid-template-columns: 1fr;
+        gap: 10px;
+    }
+
     .homePageSecondNormalCards {
         width: 100%;
         display: grid;
@@ -116,7 +123,9 @@
 
 @media screen and (min-width: 576px) {
     .homePageSecondCards {
-        .homePageSecondNormalCards {
+
+        .homePageSecondNormalCards,
+        .homePageSecondLittleCards {
             grid-template-columns: repeat(2, 1fr);
         }
 
@@ -134,14 +143,19 @@
         }
     }
 
+    .homePageSecondNormalCardsWall {
+        grid-template-columns: repeat(2, 1fr) !important;
+    }
+
     .homePageSecondCardsWithWalls {
         .homePageSecondNormalCards {
-            grid-template-columns: repeat(2, 1fr);
+            grid-template-columns: repeat(2, 1fr) !important;
         }
     }
 }
 
 @media screen and (min-width: 992px) {
+
     .homePageSecondLittleCards,
     .homePageSecondNormalCards {
         gap: 25px !important;
@@ -160,6 +174,11 @@
             grid-template-columns: repeat(3, 1fr);
         }
     }
+
+    .homePageSecondNormalCardsWall {
+        grid-template-columns: repeat(3, 1fr) !important;
+    }
+
     .homePageSecondLittleCards,
     .homePageSecondNormalCards {
         gap: 35px !important;

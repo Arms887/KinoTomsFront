@@ -31,7 +31,7 @@ export default function HomePageSecond() {
                         </div>
                         <div className={styles.homePageSecondCardsWithWalls}>
                             <div className={styles.homePageSecondCardWall}></div>
-                            <div className={styles.homePageSecondNormalCards}>
+                            <div className={styles.homePageSecondNormalCardsWall}>
                                 {testArray.slice(0, 3).map((item, index) => (
                                     <div key={index} className={styles.productCardWrapperWithWalls}>
                                         <ProductCard version={2} className={styles.homePageSecondLittleCard} id={item.id} img={item.img} time={item.time} title={item.title} />

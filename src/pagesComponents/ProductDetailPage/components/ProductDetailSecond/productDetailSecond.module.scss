@@ -3,6 +3,7 @@
     font-family: var(--font-montserrat-arm);
     font-size: 25px;
     font-weight: 600;
+    margin-bottom: 50px;
 }
 
 .productDetailDescription {
@@ -15,10 +16,21 @@
 
 .ProductDetailTicketsBlock {
     width: 100%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
     margin-bottom: 84px;
+}
+
+.ProductDetailTicketsGrid {
+    width: 100%;
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 10px;
+
+    .ticketCardWrapper {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 100%;
+    }
 }
 
 .productDetailAddress {
@@ -41,16 +53,54 @@
 
 .ProductDetailNormalCards {
     width: 100%;
-    flex: 1;
-    min-width: 0;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 10px;
 
-    :global(.ant-col) {
+    .productCardWrapper {
         display: flex;
         align-items: center;
         justify-content: center;
+        width: 100%;
+    }
+}
+
+@media screen and (min-width: 576px) {
+    .ProductDetailNormalCards {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 20px;
+    }
+}
+
+@media screen and (min-width: 768px) {
+    .ProductDetailTicketsGrid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 30px;
+    }
+}
+
+@media screen and (min-width: 992px) {
+    .ProductDetailNormalCards {
+        grid-template-columns: repeat(3, 1fr);
+        gap: 30px;
+    }
+}
+
+@media screen and (min-width: 1200px) {
+    .ProductDetailTicketsGrid {
+        grid-template-columns: repeat(3, 1fr);
+        gap: 45px;
+    }
+        .ProductDetailNormalCards {
+        grid-template-columns: repeat(4, 1fr);
+        gap: 55px;
+    }
+}
+
+@media screen and (min-width: 1400px) {
+    .ProductDetailTicketsGrid {
+        grid-template-columns: repeat(3, 1fr);
+        gap: 64px;
     }
 }
 
@@ -58,44 +108,68 @@
     .productDetailDescriptionBlock {
         margin-bottom: 35px;
     }
+
     .ProductDetailTicketsBlock {
         margin-bottom: 65px;
     }
+
     .productDetailAddress {
         margin-bottom: 100px;
     }
+
     .productTimesBlock {
 
         gap: 15px;
         margin-bottom: 55px;
     }
+
+    .productDetailTitle {
+        margin-bottom: 30px;
+        font-size: 20px;
+    }
 }
+
 @media screen and (max-width: 768px) {
     .productDetailDescriptionBlock {
         margin-bottom: 30px;
     }
+
     .ProductDetailTicketsBlock {
         margin-bottom: 55px;
     }
+
     .productDetailAddress {
         margin-bottom: 80px;
     }
+
     .productTimesBlock {
 
         margin-bottom: 47px;
     }
+    .productDetailTitle {
+        margin-bottom: 20px;
+        font-size: 18px;
+    }
 }
+
 @media screen and (max-width: 576px) {
     .productDetailDescriptionBlock {
         margin-bottom: 25px;
     }
+
     .ProductDetailTicketsBlock {
         margin-bottom: 45px;
     }
+
     .productDetailAddress {
         margin-bottom: 65px;
     }
+
     .productTimesBlock {
         margin-bottom: 35px;
+    }
+
+    .ProductDetailNormalCards {
+        gap: 15px;
     }
 }
