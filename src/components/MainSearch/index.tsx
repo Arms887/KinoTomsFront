@@ -81,6 +81,10 @@ function MainSearch() {
                 <div className={styles.mainSearchInputItem}>
                     <p>{t("cinemas")}</p>
                     <Select
+                        dropdownStyle={{ 
+        minWidth: '200px', 
+        backgroundColor: '#d6d6d6' 
+    }}
                         className={styles.selectInput}
                         value={searchState.cinemas || undefined}
                         onChange={handleCinemasChange}
@@ -91,6 +95,10 @@ function MainSearch() {
                 <div className={styles.mainSearchInputItem}>
                     <p>{t("city")}</p>
                     <Select
+                        dropdownStyle={{ 
+        minWidth: '200px', 
+        backgroundColor: '#d6d6d6' 
+    }}
                         className={styles.selectInput}
                         value={searchState.city || undefined}
                         onChange={handleCityChange}

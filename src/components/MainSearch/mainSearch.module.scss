@@ -41,7 +41,10 @@
     display: flex;
     flex-direction: column;
     gap: 8px;
-
+    // :global(.ant-select-dropdown){
+    //     min-width: 200px;
+    //     background-color: #d6d6d6;
+    // }
     p {
         font-size: 20px;
         color: #ffffff;
@@ -191,10 +194,6 @@
         border-bottom-color: #ffffff !important;
         box-shadow: none !important;
     }
-}
-:global(.ant-select-dropdown){
-    min-width: 200px;
-    background-color: #d6d6d6;
 }
 @media (max-width: 1200px) {
     .mainSearchContainer {
