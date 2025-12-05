@@ -152,6 +152,7 @@
     "pay": "ՎՃԱՐԵԼ",
     "termsAndConditions": "Ընդհանուր դրույթներ և պայմաններ",
     "paymentProcessing": "Վճարումը մշակվում է...",
-    "back": "Հետ"
+    "back": "Հետ",
+    "selectAtLeastOneSeat": "Խնդրում ենք ընտրեք առնվազն մեկ տեղ"
   }
 }

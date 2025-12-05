@@ -469,6 +469,7 @@
   .modal {
     max-width: 100%;
     padding: 1rem;
+    max-height: 95vh;
   }
 
   .title {
@@ -478,5 +479,11 @@
   .seatMapPlaceholder {
     padding: 3rem 1rem;
     min-height: 150px;
+  }
+}
+
+@media (max-width: 480px) {
+  .modal {
+    padding: 0.75rem;
   }
 }

@@ -8,9 +8,36 @@ import { PinkButton } from "../ui/pinkButton";
 import { X, ArrowLeft } from "lucide-react";
 import styles from "./TicketPurchaseModal.module.scss";
 import Image from "next/image";
+import { CinemaConfig, CinemaSeatPicker } from "../CinemaSchema";
 
 type Step = "seat" | "info" | "payment";
 
+const cinemaConfig: CinemaConfig = {
+  name: 'Կինո Պալաս',
+  balconies: [
+    {
+      id: 'amphitheater',
+      name: 'Ամֆիթատրոն',
+      rows: [
+        { row: 1, seats: 6, price: 3500, aisles: [3] },
+        { row: 2, seats: 8, price: 3500, aisles: [4] },
+        { row: 3, seats: 8, price: 3000, aisles: [4] },
+      ],
+      disabledSeats: ['1-2'],
+      occupiedSeats: ['2-5']
+    }
+  ],
+  rows: [
+    { row: 1, seats: 8, price: 2000, aisles: [4] },
+    { row: 2, seats: 10, price: 2000, aisles: [5] },
+    { row: 3, seats: 12, price: 2500, aisles: [4, 8] },
+    { row: 4, seats: 12, price: 2500, aisles: [4, 8] },
+    { row: 5, seats: 12, price: 3000, vip: true, aisles: [4, 8] },
+    { row: 6, seats: 10, price: 3000, vip: true, aisles: [5] },
+  ],
+  disabledSeats: ['1-2', '1-8', '2-1'],
+  occupiedSeats: ['5-7']
+};
 interface TicketPurchaseModalProps {
   isOpen: boolean;
   onClose: () => void;
@@ -25,7 +52,7 @@ export default function TicketPurchaseModal({
   const t = useTranslations("TicketPurchase");
   const [currentStep, setCurrentStep] = useState<Step>("seat");
   const [ticketCount, setTicketCount] = useState(1);
-  
+
   const [userInfo, setUserInfo] = useState({
     name: "",
     surname: "",
@@ -36,44 +63,54 @@ export default function TicketPurchaseModal({
   const [promoCode, setPromoCode] = useState("");
   const [showPromoCode, setShowPromoCode] = useState(false);
   const [validationError, setValidationError] = useState<string>("");
+  const [selectedSeats, setSelectedSeats] = useState<string[]>([]);
+  const [totalPrice, setTotalPrice] = useState(0);
 
-  const ticketPrice = 2000;
   const serviceFee = 0;
-  const total = ticketPrice * ticketCount + serviceFee;
+  const total = totalPrice + serviceFee;
 
   if (!isOpen) return null;
 
   const handleSeatContinue = () => {
     setValidationError("");
+    if (selectedSeats.length === 0) {
+      setValidationError(t("selectAtLeastOneSeat") || "Խնդրում ենք ընտրեք առնվազն մեկ տեղ");
+      return;
+    }
     setCurrentStep("info");
+  };
+
+  const handleSeatsSelect = (seats: string[], price: number) => {
+    setSelectedSeats(seats);
+    setTotalPrice(price);
   };
 
   const handleInfoContinue = () => {
     setValidationError("");
-    
+
     // Validate name and surname
     if (!userInfo.name || !userInfo.name.trim()) {
       setValidationError(t("fillAllFields") || "Խնդրում ենք լրացրեք բոլոր դաշտերը");
       return;
     }
-    
+
     if (!userInfo.surname || !userInfo.surname.trim()) {
       setValidationError(t("fillAllFields") || "Խնդրում ենք լրացրեք բոլոր դաշտերը");
       return;
     }
-    
+
     // Validate email
     if (!userInfo.email || !userInfo.email.trim()) {
       setValidationError(t("fillAllFields") || "Խնդրում ենք լրացրեք բոլոր դաշտերը");
       return;
     }
-    
+
     const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
     if (!emailRegex.test(userInfo.email)) {
       setValidationError(t("invalidEmail") || "Խնդրում ենք մուտքագրեք վավեր էլ. հասցե");
       return;
     }
-    
+
     setCurrentStep("payment");
   };
 
@@ -98,6 +135,8 @@ export default function TicketPurchaseModal({
     setPaymentMethod("card");
     setPromoCode("");
     setShowPromoCode(false);
+    setSelectedSeats([]);
+    setTotalPrice(0);
     onClose();
   };
 
@@ -126,35 +165,16 @@ export default function TicketPurchaseModal({
           {/* Step 1: Seat Selection */}
           {currentStep === "seat" && (
             <div className={styles.stepContainer}>
-              <p className={styles.subtitle}>
-                {t("seatSelectionPlaceholder") || "Տեղ ընտրելու հնարավորությունը շուտով կավելանա"}
-              </p>
-              
-              {/* Placeholder for seat map */}
-              <div className={styles.seatMapPlaceholder}>
-                <p>{t("seatMapComingSoon") || "Տեղերի քարտեզը շուտով կավելանա"}</p>
-              </div>
-
-              <div className={styles.ticketCountSelector}>
-                <label>{t("ticketCount") || "Տոմսերի քանակ"}</label>
-                <div className={styles.countInput}>
-                  <button 
-                    onClick={() => setTicketCount(Math.max(1, ticketCount - 1))}
-                    className={styles.countButton}
-                    type="button"
-                  >
-                    -
-                  </button>
-                  <span>{ticketCount} {t("ticket") || "տոմս"}</span>
-                  <button 
-                    onClick={() => setTicketCount(ticketCount + 1)}
-                    className={styles.countButton}
-                    type="button"
-                  >
-                    +
-                  </button>
+              {validationError && (
+                <div className={styles.errorMessage}>
+                  {validationError}
                 </div>
-              </div>
+              )}
+              <CinemaSeatPicker
+                config={cinemaConfig}
+                onSeatsSelect={handleSeatsSelect}
+                isModal={true}
+              />
 
               <PinkButton onClick={handleSeatContinue} className={styles.continueButton}>
                 <span>{t("continue") || "Շարունակել"}</span>
@@ -170,11 +190,11 @@ export default function TicketPurchaseModal({
                   {validationError}
                 </div>
               )}
-              <form 
-                className={styles.infoForm} 
-                onSubmit={(e) => { 
-                  e.preventDefault(); 
-                  handleInfoContinue(); 
+              <form
+                className={styles.infoForm}
+                onSubmit={(e) => {
+                  e.preventDefault();
+                  handleInfoContinue();
                 }}
               >
                 <div className={styles.formGroup}>
@@ -237,7 +257,7 @@ export default function TicketPurchaseModal({
 
               <div className={styles.paymentMethods}>
                 <h4 className={styles.sectionTitle}>{t("paymentMethod") || "Վճարման եղանակ"}</h4>
-                
+
                 <div className={styles.paymentOption}>
                   <input
                     type="radio"
@@ -249,8 +269,8 @@ export default function TicketPurchaseModal({
                   />
                   <label htmlFor="card" className={styles.paymentLabel}>
                     <div className={styles.paymentIcon}>                      <div className={styles.paymentIconImage}>
-                        <Image src="/assets/img/atm-card.png" alt="Idram" width={20} height={20} />
-                      </div></div>
+                      <Image src="/assets/img/atm-card.png" alt="Idram" width={20} height={20} />
+                    </div></div>
                     <span>{t("bankCard") || "Բանկային քարտ"}</span>
                   </label>
                 </div>
@@ -285,8 +305,8 @@ export default function TicketPurchaseModal({
                   />
                   <label htmlFor="telcell" className={styles.paymentLabel}>
                     <div className={styles.paymentIcon}>                      <div className={styles.paymentIconImage}>
-                        <Image src="/assets/img/telcell.png" alt="telcell" width={20} height={20} />
-                      </div></div>
+                      <Image src="/assets/img/telcell.png" alt="telcell" width={20} height={20} />
+                    </div></div>
                     <span>Telcell Wallet</span>
                   </label>
                 </div>
@@ -302,15 +322,15 @@ export default function TicketPurchaseModal({
                   />
                   <label htmlFor="easywallet" className={styles.paymentLabel}>
                     <div className={styles.paymentIcon}>                      <div className={styles.paymentIconImage}>
-                        <Image src="/assets/img/easywallet.png" alt="Idram" width={20} height={20} />
-                      </div></div>
+                      <Image src="/assets/img/easywallet.png" alt="Idram" width={20} height={20} />
+                    </div></div>
                     <span>easywallet</span>
                   </label>
                 </div>
               </div>
 
               <div className={styles.promoCodeSection}>
-                <div 
+                <div
                   className={styles.promoCodeHeader}
                   onClick={() => setShowPromoCode(!showPromoCode)}
                 >
@@ -332,7 +352,7 @@ export default function TicketPurchaseModal({
               <div className={styles.orderSummary}>
                 <div className={styles.summaryRow}>
                   <span>{t("ticketPrice") || "Տոմսերի արժեքը"}</span>
-                  <span>{ticketPrice * ticketCount} ֏</span>
+                  <span>{totalPrice} ֏</span>
                 </div>
                 <div className={styles.summaryRow}>
                   <span>{t("serviceFee") || "Ծառայության վճար"}</span>

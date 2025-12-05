@@ -151,6 +151,7 @@
     "pay": "ОПЛАТИТЬ",
     "termsAndConditions": "Общие положения и условия",
     "paymentProcessing": "Обработка платежа...",
-    "back": "Назад"
+    "back": "Назад",
+    "selectAtLeastOneSeat": "Пожалуйста, выберите хотя бы одно место"
   }
 }

@@ -151,6 +151,7 @@
     "pay": "PAY",
     "termsAndConditions": "General terms and conditions",
     "paymentProcessing": "Processing payment...",
-    "back": "Back"
+    "back": "Back",
+    "selectAtLeastOneSeat": "Please select at least one seat"
   }
 }
